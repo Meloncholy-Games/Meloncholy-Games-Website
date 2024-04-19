@@ -1,6 +1,6 @@
-# React Static Site
+# Website
 
-### A GitHub Pages Starting Point
+### Website For Meloncholy Games
 
 ## About Project
 
