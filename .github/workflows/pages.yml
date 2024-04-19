@@ -1,0 +1,27 @@
+name: Build and Deploy to Pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+
+  build-and-deploy:
+    name: Build And Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.1
+
+      - name: Install Node Modules
+        run: npm install
+
+      - name: Build Site
+        run: npm run build
+
+      - name: Deploy Site
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: dist
