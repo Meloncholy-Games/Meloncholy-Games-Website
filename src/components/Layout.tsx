@@ -13,11 +13,12 @@ const Layout = () => {
 				style={{ height: "100vh" }}
 			>
 				<Grid item>
-					<Typography variant={"h2"}>Hello World!</Typography>
+					<Typography variant={"h2"}>Meloncholy Games</Typography>
 				</Grid>
 				<Grid item>
 					<Typography variant={"h4"}>
-						You are in {import.meta.env.MODE} mode. Your journey begins here.
+						This will host the future website for meloncholy games. 
+						In the meantime, it is live so we can link to it from socials and for AWS purposes.
 					</Typography>
 				</Grid>
 			</Grid>
