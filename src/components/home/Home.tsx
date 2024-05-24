@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 
-const Layout = () => {
+const Home = () => {
 	return (
 		<Container>
 			<Grid
@@ -26,4 +26,4 @@ const Layout = () => {
 	);
 };
 
-export default Layout;
+export default Home;

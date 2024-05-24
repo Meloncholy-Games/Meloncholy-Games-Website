@@ -4,7 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import Layout from "./Layout";
+import Router from "./Router";
 
 const App = () => {
     const darkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -17,7 +17,7 @@ const App = () => {
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Layout />
+                <Router />
             </ThemeProvider>
         </StyledEngineProvider>
     );
