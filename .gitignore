@@ -1,20 +1,3 @@
-# Idea Files
-
-.idea/workspace.xml
-
-# Node Files
-
+.DS_Store
 node_modules
-
-# Output Files
-
-build
-coverage
 dist
-lib
-out
-
-# Server Files
-
-dependency-reduced-pom.xml
-target
