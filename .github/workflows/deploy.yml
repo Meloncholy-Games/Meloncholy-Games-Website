@@ -49,7 +49,6 @@ jobs:
           output-prefix: 'VITE_'
           file-path: '.env'
         env:
-          CANTALOUPE_GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           CANTALOUPE_NODE_ENV: "production"
 
       - name: Build
