@@ -1,5 +1,9 @@
-import { Fn, RemovalPolicy, Stack, StackProps } from "aws-cdk-lib";
-import { Certificate, ICertificate } from "aws-cdk-lib/aws-certificatemanager";
+import { RemovalPolicy, Stack, StackProps } from "aws-cdk-lib";
+import {
+    Certificate,
+    CertificateValidation,
+    ICertificate
+} from "aws-cdk-lib/aws-certificatemanager";
 import { Distribution, ViewerProtocolPolicy } from "aws-cdk-lib/aws-cloudfront";
 import { S3BucketOrigin, S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { ARecord, CnameRecord, HostedZone, RecordTarget, TxtRecord } from "aws-cdk-lib/aws-route53";
@@ -15,11 +19,11 @@ class CantaloupeWebsiteStack extends Stack {
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
 
-        const certificate = Certificate.fromCertificateArn(
-            this,
-            "cantaloupeCertificate",
-            Fn.importValue(cantaloupeCertificateArnExportName)
-        );
+        const certificate = new Certificate(this, "cantaloupeCertificate", {
+            domainName: "meloncholy.games",
+            subjectAlternativeNames: ["*.meloncholy.games"],
+            validation: CertificateValidation.fromDns()
+        });
 
         const websiteDistribution = this.createWebsiteDistribution(certificate);
         const wwwRedirectDistribution = this.createWWWRedirectBucket(certificate);
