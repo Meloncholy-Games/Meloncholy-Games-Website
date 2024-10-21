@@ -13,8 +13,6 @@ import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 
 import { Construct } from "constructs";
 
-const cantaloupeCertificateArnExportName = "CantaloupeCertificateArn";
-
 class CantaloupeWebsiteStack extends Stack {
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
@@ -138,6 +136,11 @@ class CantaloupeWebsiteStack extends Stack {
         websiteDistribution: Distribution,
         wwwRedirectDistribution: Distribution
     ) {
+        new CnameRecord(this, `cantaloupeWebsiteCertificateMapping`, {
+            zone,
+            recordName: "_99ee3fa051e4bbd1a4e27374900be2c4",
+            domainName: "_db132e49113913e322150a2ec860dd33.djqtsrsxkq.acm-validations.aws"
+        });
         new ARecord(this, `cantaloupeWebsiteMapping`, {
             zone,
             target: RecordTarget.fromAlias(new CloudFrontTarget(websiteDistribution))
