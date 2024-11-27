@@ -160,8 +160,8 @@ class CantaloupeWebsiteStack extends Stack {
         });
         new CnameRecord(this, `cantaloupeRestApiMapping`, {
             zone,
-            recordName: "lobby.cantaloupe",
-            domainName: "d3rbv3jijyzuig.cloudfront.net"
+            recordName: "api.cantaloupe",
+            domainName: "d1g3o3q7w7q85q.cloudfront.net"
         });
         new CnameRecord(this, `cantaloupeSubscriptionApiMapping`, {
             zone,
