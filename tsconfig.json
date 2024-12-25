@@ -1,21 +1,12 @@
 {
     "compilerOptions": {
-        "module": "Preserve",
-        "moduleResolution": "Bundler",
+        "lib": ["DOM", "ESNext"],
         "isolatedModules": true,
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "resolveJsonModule": true,
         "noEmit": true,
         "jsx": "react-jsx"
     },
-    "ts-node": {
-        "transpileOnly": true,
-        "compilerOptions": {
-            "module": "NodeNext",
-            "moduleResolution": "NodeNext",
-            "sourceMap": true
-        }
-    },
     "references": [{ "path": "./tsconfig.node.json" }],
-    "extends": "@tsconfig/node18/tsconfig.json",
+    "extends": "@tsconfig/node22/tsconfig.json",
     "$schema": "https://json.schemastore.org/tsconfig"
 }
