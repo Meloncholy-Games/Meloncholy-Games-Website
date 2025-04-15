@@ -40,7 +40,7 @@ jobs:
       - name: Format
         run: |
           echo "If Formatting Fails Please Run 'npm run format' Locally And Push Changes"
-          npm run checkFormat
+          npm run check-format
 
   check-lint:
     
