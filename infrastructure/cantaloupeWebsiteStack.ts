@@ -6,7 +6,14 @@ import {
 } from "aws-cdk-lib/aws-certificatemanager";
 import { Distribution, ViewerProtocolPolicy } from "aws-cdk-lib/aws-cloudfront";
 import { S3BucketOrigin, S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
-import { ARecord, CnameRecord, HostedZone, RecordTarget, TxtRecord } from "aws-cdk-lib/aws-route53";
+import {
+    ARecord,
+    CnameRecord,
+    HostedZone,
+    MxRecord,
+    RecordTarget,
+    TxtRecord
+} from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import { Bucket, RedirectProtocol } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
@@ -95,7 +102,7 @@ class CantaloupeWebsiteStack extends Stack {
     }
 
     private createEmailRecords(zone: HostedZone) {
-        this.createEmailDomainAuthenticationMapping(zone);
+        this.createEmailDomainMailgunMapping(zone);
         this.createEmailDKIMMapping(zone);
         new TxtRecord(this, `cantaloupeEmailDMARCRecord`, {
             zone,
@@ -104,31 +111,28 @@ class CantaloupeWebsiteStack extends Stack {
         });
     }
 
-    private createEmailDomainAuthenticationMapping(zone: HostedZone) {
-        ["url6974", "47611486"].map(
-            (value) =>
-                new CnameRecord(this, `cantaloupeEmailLinkBrandingRecord-${value}`, {
-                    zone,
-                    recordName: value,
-                    domainName: "sendgrid.net"
-                })
-        );
-        new CnameRecord(this, "cantaloupeEmailDomainAuthenticationRecord", {
+    private createEmailDomainMailgunMapping(zone: HostedZone) {
+        new MxRecord(this, `cantaloupeEmailMailGunRecord`, {
             zone,
-            recordName: "em2986",
-            domainName: "u47611486.wl237.sendgrid.net"
+            values: [
+                { priority: 10, hostName: "mxa.mailgun.org" },
+                { priority: 10, hostName: "mxb.mailgun.org" }
+            ]
+        });
+        new TxtRecord(this, "cantaloupeEmailMailGunAllowlistRecord", {
+            zone,
+            values: ["v=spf1 include:mailgun.org ~all"]
         });
     }
 
-    private createEmailDKIMMapping(zone: HostedZone): CnameRecord[] {
-        return [1, 2].map(
-            (i) =>
-                new CnameRecord(this, `cantaloupeEmailDKIMRecord-${i}`, {
-                    zone,
-                    recordName: `s${i}._domainkey`,
-                    domainName: `s${i}.domainkey.u47611486.wl237.sendgrid.net`
-                })
-        );
+    private createEmailDKIMMapping(zone: HostedZone) {
+        new TxtRecord(this, `cantaloupeEmailDKIMRecord`, {
+            zone,
+            recordName: "pic._domainkey",
+            values: [
+                "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC19SVn8talRO6mvgihPD6U6TuV682XwK5hNLEkz2FyJaVwSboF7I6y29EPvyrjVQZIywtDI++3uaVZPvcwZ42lS4B79hjbn0mjQS4RLLFtp8sEZ1H+laSWvvFvUPG8ihIued0mYOp5ZDUVDtpzM66Jr4eF0jKLoQCk+q5extoDZQIDAQAB"
+            ]
+        });
     }
 
     private createWebsiteRecords(
