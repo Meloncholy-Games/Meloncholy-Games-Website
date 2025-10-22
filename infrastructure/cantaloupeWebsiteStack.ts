@@ -159,7 +159,7 @@ class CantaloupeWebsiteStack extends Stack {
     private createAPINameRecords(zone: HostedZone) {
         new CnameRecord(this, `cantaloupeCertificateMapping`, {
             zone,
-            recordName: "_8ba998a1afd9cb749e31427d9f17f3a5",
+            recordName: "_8ba998a1afd9cb749e31427d9f17f3a5.cantaloupe",
             domainName: "_5c875b139848b77f4fb079516c56c1d4.sdgjtdhdhz.acm-validations.aws"
         });
         new CnameRecord(this, `cantaloupeRestApiMapping`, {
