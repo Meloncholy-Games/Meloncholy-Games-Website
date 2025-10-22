@@ -162,16 +162,16 @@ class CantaloupeWebsiteStack extends Stack {
             recordName: "_8ba998a1afd9cb749e31427d9f17f3a5.cantaloupe",
             domainName: "_5c875b139848b77f4fb079516c56c1d4.sdgjtdhdhz.acm-validations.aws"
         });
-        // new CnameRecord(this, `cantaloupeRestApiMapping`, {
-        //     zone,
-        //     recordName: "api.cantaloupe",
-        //     domainName: "d1g3o3q7w7q85q.cloudfront.net"
-        // });
-        // new CnameRecord(this, `cantaloupeSubscriptionApiMapping`, {
-        //     zone,
-        //     recordName: "subscriptions.cantaloupe",
-        //     domainName: "d-1d6hc159lj.execute-api.us-east-1.amazonaws.com"
-        // });
+        new CnameRecord(this, `cantaloupeRestApiMapping`, {
+            zone,
+            recordName: "api.cantaloupe",
+            domainName: "d1i9deldy720mv.cloudfront.net"
+        });
+        new CnameRecord(this, `cantaloupeSubscriptionApiMapping`, {
+            zone,
+            recordName: "subscriptions.cantaloupe",
+            domainName: "d-bv0r65mfbb.execute-api.us-east-1.amazonaws.com"
+        });
     }
 }
 
