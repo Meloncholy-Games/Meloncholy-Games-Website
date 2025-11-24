@@ -1,15 +1,16 @@
 import { useMemo } from "react";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import Router from "./Router";
+import { createCustomTheme } from "../theme/theme";
 
 const App = () => {
     const darkMode = useMediaQuery("(prefers-color-scheme: dark)");
     const theme = useMemo(
-        () => createTheme({ palette: { mode: darkMode ? "dark" : "light" } }),
+        () => createCustomTheme(darkMode ? "dark" : "light"),
         [darkMode]
     );
 
