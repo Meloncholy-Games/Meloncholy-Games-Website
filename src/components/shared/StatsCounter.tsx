@@ -83,7 +83,8 @@ const StatItem = ({ stat }: { stat: Stat }) => {
                 p: 3,
                 textAlign: "center",
                 height: "100%",
-                background: "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                background:
+                    "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)"
             }}
         >
             <Typography
@@ -93,7 +94,7 @@ const StatItem = ({ stat }: { stat: Stat }) => {
                     background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    mb: 1,
+                    mb: 1
                 }}
             >
                 {stat.prefix}

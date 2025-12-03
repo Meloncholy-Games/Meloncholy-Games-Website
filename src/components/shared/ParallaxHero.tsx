@@ -14,7 +14,7 @@ const ParallaxHero = ({
     subtitle,
     height = "60vh",
     backgroundImage,
-    backgroundColor = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    backgroundColor = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
 }: ParallaxHeroProps) => {
     const [scrollY, setScrollY] = useState(0);
 
@@ -47,8 +47,8 @@ const ParallaxHero = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "rgba(0, 0, 0, 0.4)",
-                },
+                    background: "rgba(0, 0, 0, 0.4)"
+                }
             }}
         >
             <Container
@@ -58,7 +58,7 @@ const ParallaxHero = ({
                     zIndex: 1,
                     transform: `translateY(${scrollY * 0.5}px)`,
                     transition: "transform 0.1s ease-out",
-                    textAlign: "center",
+                    textAlign: "center"
                 }}
             >
                 <Typography
@@ -68,7 +68,7 @@ const ParallaxHero = ({
                         fontWeight: 900,
                         color: "white",
                         mb: 2,
-                        textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                        textShadow: "2px 2px 4px rgba(0,0,0,0.3)"
                     }}
                 >
                     {title}
@@ -80,7 +80,7 @@ const ParallaxHero = ({
                             fontSize: { xs: "1.2rem", md: "1.8rem" },
                             color: "rgba(255, 255, 255, 0.9)",
                             fontWeight: 300,
-                            textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+                            textShadow: "1px 1px 2px rgba(0,0,0,0.3)"
                         }}
                     >
                         {subtitle}

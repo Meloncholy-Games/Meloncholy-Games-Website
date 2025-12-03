@@ -7,7 +7,13 @@ interface AnimatedSectionProps extends BoxProps {
     children: React.ReactNode;
 }
 
-const AnimatedSection = ({ animation = "fadeIn", delay = 0, children, sx, ...props }: AnimatedSectionProps) => {
+const AnimatedSection = ({
+    animation = "fadeIn",
+    delay = 0,
+    children,
+    sx,
+    ...props
+}: AnimatedSectionProps) => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +42,7 @@ const AnimatedSection = ({ animation = "fadeIn", delay = 0, children, sx, ...pro
 
     const getAnimationStyles = () => {
         const baseStyles = {
-            transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+            transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
         };
 
         if (!isVisible) {

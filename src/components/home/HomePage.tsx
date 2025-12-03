@@ -27,8 +27,9 @@ const HomePage = () => {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        background: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                    },
+                        background:
+                            "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)"
+                    }
                 }}
             >
                 <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
@@ -48,7 +49,7 @@ const HomePage = () => {
                                         fontWeight: 900,
                                         color: "white",
                                         mb: 2,
-                                        fontSize: { xs: "2.5rem", md: "3.5rem" },
+                                        fontSize: { xs: "2.5rem", md: "3.5rem" }
                                     }}
                                 >
                                     Meloncholy Games
@@ -59,10 +60,11 @@ const HomePage = () => {
                                         color: "rgba(255, 255, 255, 0.9)",
                                         mb: 4,
                                         fontWeight: 300,
-                                        lineHeight: 1.6,
+                                        lineHeight: 1.6
                                     }}
                                 >
-                                    Crafting unique gaming experiences with passion, creativity, and a touch of melancholy.
+                                    Crafting unique gaming experiences with passion, creativity, and
+                                    a touch of melancholy.
                                 </Typography>
                                 <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                                     <Button
@@ -76,8 +78,8 @@ const HomePage = () => {
                                             color: "primary.main",
                                             px: 4,
                                             "&:hover": {
-                                                bgcolor: "grey.100",
-                                            },
+                                                bgcolor: "grey.100"
+                                            }
                                         }}
                                     >
                                         Discover Our Game
@@ -93,8 +95,8 @@ const HomePage = () => {
                                             px: 4,
                                             "&:hover": {
                                                 borderColor: "white",
-                                                bgcolor: "rgba(255,255,255,0.1)",
-                                            },
+                                                bgcolor: "rgba(255,255,255,0.1)"
+                                            }
                                         }}
                                     >
                                         Learn More
@@ -109,7 +111,7 @@ const HomePage = () => {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        fontSize: { xs: "10rem", md: "15rem" },
+                                        fontSize: { xs: "10rem", md: "15rem" }
                                     }}
                                 >
                                     🍉
@@ -122,10 +124,21 @@ const HomePage = () => {
 
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 <AnimatedSection animation="fadeIn">
-                    <Typography variant="h3" align="center" gutterBottom fontWeight={700} sx={{ mb: 2 }}>
+                    <Typography
+                        variant="h3"
+                        align="center"
+                        gutterBottom
+                        fontWeight={700}
+                        sx={{ mb: 2 }}
+                    >
                         What We're About
                     </Typography>
-                    <Typography variant="h6" align="center" color="text.secondary" sx={{ mb: 8, maxWidth: 700, mx: "auto" }}>
+                    <Typography
+                        variant="h6"
+                        align="center"
+                        color="text.secondary"
+                        sx={{ mb: 8, maxWidth: 700, mx: "auto" }}
+                    >
                         We're a small indie studio dedicated to creating games that matter.
                     </Typography>
                 </AnimatedSection>
@@ -135,13 +148,16 @@ const HomePage = () => {
                         <AnimatedSection animation="slideUp" delay={100}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>
-                                    <SportsEsportsIcon sx={{ fontSize: 64, color: "primary.main", mb: 2 }} />
+                                    <SportsEsportsIcon
+                                        sx={{ fontSize: 64, color: "primary.main", mb: 2 }}
+                                    />
                                     <Typography variant="h5" gutterBottom fontWeight={600}>
                                         Unique Experiences
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary">
-                                        We create games that stand out, offering fresh mechanics and memorable moments
-                                        that stick with players long after they've put down the controller.
+                                        We create games that stand out, offering fresh mechanics and
+                                        memorable moments that stick with players long after they've
+                                        put down the controller.
                                     </Typography>
                                 </CardContent>
                             </Card>
@@ -152,13 +168,16 @@ const HomePage = () => {
                         <AnimatedSection animation="slideUp" delay={200}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>
-                                    <GroupsIcon sx={{ fontSize: 64, color: "secondary.main", mb: 2 }} />
+                                    <GroupsIcon
+                                        sx={{ fontSize: 64, color: "secondary.main", mb: 2 }}
+                                    />
                                     <Typography variant="h5" gutterBottom fontWeight={600}>
                                         Community First
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary">
-                                        Our players are our partners. We listen to feedback, engage with our community,
-                                        and build games that resonate with real people.
+                                        Our players are our partners. We listen to feedback, engage
+                                        with our community, and build games that resonate with real
+                                        people.
                                     </Typography>
                                 </CardContent>
                             </Card>
@@ -169,13 +188,16 @@ const HomePage = () => {
                         <AnimatedSection animation="slideUp" delay={300}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>
-                                    <RocketLaunchIcon sx={{ fontSize: 64, color: "primary.main", mb: 2 }} />
+                                    <RocketLaunchIcon
+                                        sx={{ fontSize: 64, color: "primary.main", mb: 2 }}
+                                    />
                                     <Typography variant="h5" gutterBottom fontWeight={600}>
                                         Always Evolving
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary">
-                                        We're constantly learning, experimenting, and pushing ourselves to deliver
-                                        better experiences with every project we tackle.
+                                        We're constantly learning, experimenting, and pushing
+                                        ourselves to deliver better experiences with every project
+                                        we tackle.
                                     </Typography>
                                 </CardContent>
                             </Card>
@@ -201,7 +223,7 @@ const HomePage = () => {
                                 width: 200,
                                 height: 200,
                                 borderRadius: "50%",
-                                background: "rgba(255, 255, 255, 0.1)",
+                                background: "rgba(255, 255, 255, 0.1)"
                             },
                             "&::after": {
                                 content: '""',
@@ -211,8 +233,8 @@ const HomePage = () => {
                                 width: 250,
                                 height: 250,
                                 borderRadius: "50%",
-                                background: "rgba(255, 255, 255, 0.1)",
-                            },
+                                background: "rgba(255, 255, 255, 0.1)"
+                            }
                         }}
                     >
                         <Box sx={{ position: "relative", zIndex: 1 }}>
@@ -222,9 +244,12 @@ const HomePage = () => {
                             <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
                                 Our first major game is in development
                             </Typography>
-                            <Typography variant="body1" sx={{ mb: 4, maxWidth: 600, mx: "auto", fontSize: "1.1rem" }}>
-                                A 2D platformer adventure that combines tight controls, beautiful art, and a world
-                                full of secrets waiting to be discovered.
+                            <Typography
+                                variant="body1"
+                                sx={{ mb: 4, maxWidth: 600, mx: "auto", fontSize: "1.1rem" }}
+                            >
+                                A 2D platformer adventure that combines tight controls, beautiful
+                                art, and a world full of secrets waiting to be discovered.
                             </Typography>
                             <Button
                                 component={Link}
@@ -238,8 +263,8 @@ const HomePage = () => {
                                     px: 5,
                                     py: 1.5,
                                     "&:hover": {
-                                        bgcolor: "grey.100",
-                                    },
+                                        bgcolor: "grey.100"
+                                    }
                                 }}
                             >
                                 Learn More
@@ -253,15 +278,39 @@ const HomePage = () => {
                         <Typography variant="h4" gutterBottom fontWeight={700}>
                             Join Our Journey
                         </Typography>
-                        <Typography variant="body1" color="text.secondary" sx={{ mb: 4, maxWidth: 700, mx: "auto", fontSize: "1.1rem" }}>
-                            We're just getting started, and we'd love to have you along for the ride. Follow our progress,
-                            share your thoughts, and help us build something special.
+                        <Typography
+                            variant="body1"
+                            color="text.secondary"
+                            sx={{ mb: 4, maxWidth: 700, mx: "auto", fontSize: "1.1rem" }}
+                        >
+                            We're just getting started, and we'd love to have you along for the
+                            ride. Follow our progress, share your thoughts, and help us build
+                            something special.
                         </Typography>
-                        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-                            <Button component={Link} to="/contact" variant="contained" size="large" sx={{ px: 4 }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 2,
+                                justifyContent: "center",
+                                flexWrap: "wrap"
+                            }}
+                        >
+                            <Button
+                                component={Link}
+                                to="/contact"
+                                variant="contained"
+                                size="large"
+                                sx={{ px: 4 }}
+                            >
                                 Get In Touch
                             </Button>
-                            <Button component={Link} to="/about" variant="outlined" size="large" sx={{ px: 4 }}>
+                            <Button
+                                component={Link}
+                                to="/about"
+                                variant="outlined"
+                                size="large"
+                                sx={{ px: 4 }}
+                            >
                                 About Us
                             </Button>
                         </Box>

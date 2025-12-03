@@ -1,4 +1,14 @@
-import { Container, Typography, Grid, Card, CardContent, Box, Button, Chip, Paper } from "@mui/material";
+import {
+    Container,
+    Typography,
+    Grid,
+    Card,
+    CardContent,
+    Box,
+    Button,
+    Chip,
+    Paper
+} from "@mui/material";
 import PageLayout from "../shared/PageLayout";
 import ParallaxHero from "../shared/ParallaxHero";
 import AnimatedSection from "../shared/AnimatedSection";
@@ -15,23 +25,24 @@ const CantaloupePage = () => {
         {
             icon: <GamepadIcon sx={{ fontSize: 48, color: "primary.main" }} />,
             title: "Engaging Gameplay",
-            description: "Fluid controls and responsive mechanics that feel great from the first jump.",
+            description:
+                "Fluid controls and responsive mechanics that feel great from the first jump."
         },
         {
             icon: <MapIcon sx={{ fontSize: 48, color: "secondary.main" }} />,
             title: "Handcrafted Levels",
-            description: "Carefully designed worlds filled with secrets, challenges, and surprises.",
+            description: "Carefully designed worlds filled with secrets, challenges, and surprises."
         },
         {
             icon: <BrushIcon sx={{ fontSize: 48, color: "primary.main" }} />,
             title: "Unique Art Style",
-            description: "A vibrant, colorful aesthetic that brings the world to life.",
+            description: "A vibrant, colorful aesthetic that brings the world to life."
         },
         {
             icon: <MusicNoteIcon sx={{ fontSize: 48, color: "secondary.main" }} />,
             title: "Original Soundtrack",
-            description: "An immersive audio experience that complements every moment.",
-        },
+            description: "An immersive audio experience that complements every moment."
+        }
     ];
 
     const highlights = [
@@ -40,14 +51,14 @@ const CantaloupePage = () => {
         "Discover hidden secrets and collectibles",
         "Face challenging boss encounters",
         "Unlock new abilities as you progress",
-        "Experience a captivating story",
+        "Experience a captivating story"
     ];
 
     const screenshots = [
         { title: "Lush Forest World", placeholder: "🌲" },
         { title: "Crystal Caverns", placeholder: "💎" },
         { title: "Sky Temple", placeholder: "⛩️" },
-        { title: "Underwater Ruins", placeholder: "🌊" },
+        { title: "Underwater Ruins", placeholder: "🌊" }
     ];
 
     return (
@@ -70,11 +81,23 @@ const CantaloupePage = () => {
                         <Typography variant="h3" gutterBottom fontWeight={700}>
                             An Epic Platforming Journey
                         </Typography>
-                        <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: "auto", mb: 4 }}>
-                            Project Cantaloupe is our first major title—a love letter to classic 2D platformers with
-                            a modern twist. Jump, explore, and uncover the mysteries of a vibrant world.
+                        <Typography
+                            variant="h6"
+                            color="text.secondary"
+                            sx={{ maxWidth: 800, mx: "auto", mb: 4 }}
+                        >
+                            Project Cantaloupe is our first major title—a love letter to classic 2D
+                            platformers with a modern twist. Jump, explore, and uncover the
+                            mysteries of a vibrant world.
                         </Typography>
-                        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 2,
+                                justifyContent: "center",
+                                flexWrap: "wrap"
+                            }}
+                        >
                             <Button
                                 variant="contained"
                                 size="large"
@@ -83,11 +106,7 @@ const CantaloupePage = () => {
                             >
                                 Watch Trailer
                             </Button>
-                            <Button
-                                variant="outlined"
-                                size="large"
-                                sx={{ px: 4, py: 1.5 }}
-                            >
+                            <Button variant="outlined" size="large" sx={{ px: 4, py: 1.5 }}>
                                 Wishlist on Steam
                             </Button>
                         </Box>
@@ -95,7 +114,13 @@ const CantaloupePage = () => {
                 </AnimatedSection>
 
                 <AnimatedSection animation="slideUp" delay={200} sx={{ mb: 10 }}>
-                    <Typography variant="h4" align="center" gutterBottom fontWeight={700} sx={{ mb: 6 }}>
+                    <Typography
+                        variant="h4"
+                        align="center"
+                        gutterBottom
+                        fontWeight={700}
+                        sx={{ mb: 6 }}
+                    >
                         Game Features
                     </Typography>
                     <Grid container spacing={4}>
@@ -122,12 +147,19 @@ const CantaloupePage = () => {
                 <AnimatedSection animation="fadeIn" delay={300} sx={{ mb: 10 }}>
                     <Box
                         sx={{
-                            background: "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
+                            background:
+                                "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
                             borderRadius: 4,
-                            p: 6,
+                            p: 6
                         }}
                     >
-                        <Typography variant="h4" align="center" gutterBottom fontWeight={700} sx={{ mb: 4 }}>
+                        <Typography
+                            variant="h4"
+                            align="center"
+                            gutterBottom
+                            fontWeight={700}
+                            sx={{ mb: 4 }}
+                        >
                             What to Expect
                         </Typography>
                         <Grid container spacing={2}>
@@ -141,7 +173,7 @@ const CantaloupePage = () => {
                                                 textAlign: "center",
                                                 backgroundColor: "background.paper",
                                                 border: "2px solid",
-                                                borderColor: "primary.main",
+                                                borderColor: "primary.main"
                                             }}
                                         >
                                             <Typography variant="body1" fontWeight={600}>
@@ -156,7 +188,13 @@ const CantaloupePage = () => {
                 </AnimatedSection>
 
                 <AnimatedSection animation="slideUp" delay={400} sx={{ mb: 10 }}>
-                    <Typography variant="h4" align="center" gutterBottom fontWeight={700} sx={{ mb: 6 }}>
+                    <Typography
+                        variant="h4"
+                        align="center"
+                        gutterBottom
+                        fontWeight={700}
+                        sx={{ mb: 6 }}
+                    >
                         Preview Gallery
                     </Typography>
                     <Grid container spacing={3}>
@@ -171,11 +209,12 @@ const CantaloupePage = () => {
                                             flexDirection: "column",
                                             alignItems: "center",
                                             justifyContent: "center",
-                                            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                                            background:
+                                                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                                             transition: "transform 0.3s ease-in-out",
                                             "&:hover": {
-                                                transform: "scale(1.05)",
-                                            },
+                                                transform: "scale(1.05)"
+                                            }
                                         }}
                                     >
                                         <Typography variant="h1" sx={{ fontSize: "5rem", mb: 2 }}>
@@ -184,7 +223,10 @@ const CantaloupePage = () => {
                                         <Typography variant="h6" color="white" fontWeight={600}>
                                             {screenshot.title}
                                         </Typography>
-                                        <Typography variant="caption" color="rgba(255, 255, 255, 0.7)">
+                                        <Typography
+                                            variant="caption"
+                                            color="rgba(255, 255, 255, 0.7)"
+                                        >
                                             Coming Soon
                                         </Typography>
                                     </Paper>
@@ -199,14 +241,26 @@ const CantaloupePage = () => {
                         <Typography variant="h4" gutterBottom fontWeight={700} sx={{ mb: 3 }}>
                             The Story
                         </Typography>
-                        <Typography variant="body1" color="text.secondary" paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-                            In a world where reality bends and dreams take shape, you play as a lone wanderer seeking
-                            to restore balance to a fractured realm. Navigate through stunning environments, each with
-                            its own mysteries and challenges.
+                        <Typography
+                            variant="body1"
+                            color="text.secondary"
+                            paragraph
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                        >
+                            In a world where reality bends and dreams take shape, you play as a lone
+                            wanderer seeking to restore balance to a fractured realm. Navigate
+                            through stunning environments, each with its own mysteries and
+                            challenges.
                         </Typography>
-                        <Typography variant="body1" color="text.secondary" paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-                            Ancient powers lie dormant, waiting to be awakened. Will you master them in time to face
-                            the darkness that threatens to consume everything? Your journey begins with a single jump...
+                        <Typography
+                            variant="body1"
+                            color="text.secondary"
+                            paragraph
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                        >
+                            Ancient powers lie dormant, waiting to be awakened. Will you master them
+                            in time to face the darkness that threatens to consume everything? Your
+                            journey begins with a single jump...
                         </Typography>
                     </Box>
                 </AnimatedSection>
@@ -218,7 +272,7 @@ const CantaloupePage = () => {
                             borderRadius: 4,
                             p: 6,
                             textAlign: "center",
-                            color: "white",
+                            color: "white"
                         }}
                     >
                         <PeopleIcon sx={{ fontSize: 64, mb: 2 }} />
@@ -226,13 +280,40 @@ const CantaloupePage = () => {
                             Stay Updated
                         </Typography>
                         <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>
-                            Follow our development journey and be the first to know about updates, beta testing, and release dates.
+                            Follow our development journey and be the first to know about updates,
+                            beta testing, and release dates.
                         </Typography>
-                        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", flexWrap: "wrap" }}>
-                            <Button variant="contained" size="large" sx={{ bgcolor: "white", color: "primary.main", "&:hover": { bgcolor: "grey.100" } }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 2,
+                                justifyContent: "center",
+                                flexWrap: "wrap"
+                            }}
+                        >
+                            <Button
+                                variant="contained"
+                                size="large"
+                                sx={{
+                                    bgcolor: "white",
+                                    color: "primary.main",
+                                    "&:hover": { bgcolor: "grey.100" }
+                                }}
+                            >
                                 Join Discord
                             </Button>
-                            <Button variant="outlined" size="large" sx={{ borderColor: "white", color: "white", "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.1)" } }}>
+                            <Button
+                                variant="outlined"
+                                size="large"
+                                sx={{
+                                    borderColor: "white",
+                                    color: "white",
+                                    "&:hover": {
+                                        borderColor: "white",
+                                        bgcolor: "rgba(255,255,255,0.1)"
+                                    }
+                                }}
+                            >
                                 Follow on Twitter
                             </Button>
                         </Box>

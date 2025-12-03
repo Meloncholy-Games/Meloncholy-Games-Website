@@ -9,7 +9,7 @@ interface SEOProps {
 const SEO = ({
     title = "Meloncholy Games",
     description = "Indie game development studio creating unique gaming experiences with passion and creativity.",
-    keywords = "indie games, game development, video games, gaming, meloncholy games",
+    keywords = "indie games, game development, video games, gaming, meloncholy games"
 }: SEOProps) => {
     const fullTitle = title === "Meloncholy Games" ? title : `${title} | Meloncholy Games`;
 

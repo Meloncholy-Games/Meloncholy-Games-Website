@@ -14,7 +14,7 @@ const LoadingSpinner = ({ message = "Loading...", fullScreen = false }: LoadingS
                 alignItems: "center",
                 justifyContent: "center",
                 minHeight: fullScreen ? "100vh" : "50vh",
-                gap: 2,
+                gap: 2
             }}
         >
             <CircularProgress size={60} thickness={4} />

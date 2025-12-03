@@ -24,7 +24,11 @@ const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
 
     if (variant === "inline") {
         return (
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", gap: 1, flexDirection: { xs: "column", sm: "row" } }}>
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ display: "flex", gap: 1, flexDirection: { xs: "column", sm: "row" } }}
+            >
                 <TextField
                     fullWidth
                     placeholder="Enter your email"
@@ -55,7 +59,8 @@ const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
             sx={{
                 p: 4,
                 textAlign: "center",
-                background: "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                background:
+                    "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)"
             }}
         >
             <EmailIcon sx={{ fontSize: 48, color: "primary.main", mb: 2 }} />
@@ -63,9 +68,14 @@ const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
                 Stay in the Loop
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-                Subscribe to our newsletter for the latest updates, dev blogs, and exclusive sneak peeks.
+                Subscribe to our newsletter for the latest updates, dev blogs, and exclusive sneak
+                peeks.
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", gap: 1, flexDirection: { xs: "column", sm: "row" } }}>
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ display: "flex", gap: 1, flexDirection: { xs: "column", sm: "row" } }}
+            >
                 <TextField
                     fullWidth
                     placeholder="Enter your email"

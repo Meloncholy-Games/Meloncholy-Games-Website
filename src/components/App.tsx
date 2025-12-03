@@ -9,10 +9,7 @@ import { createCustomTheme } from "../theme/theme";
 
 const App = () => {
     const darkMode = useMediaQuery("(prefers-color-scheme: dark)");
-    const theme = useMemo(
-        () => createCustomTheme(darkMode ? "dark" : "light"),
-        [darkMode]
-    );
+    const theme = useMemo(() => createCustomTheme(darkMode ? "dark" : "light"), [darkMode]);
 
     return (
         <StyledEngineProvider injectFirst>

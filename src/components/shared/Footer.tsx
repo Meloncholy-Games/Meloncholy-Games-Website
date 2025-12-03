@@ -1,4 +1,12 @@
-import { Box, Container, Grid, Typography, IconButton, Link as MuiLink, Divider } from "@mui/material";
+import {
+    Box,
+    Container,
+    Grid,
+    Typography,
+    IconButton,
+    Link as MuiLink,
+    Divider
+} from "@mui/material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -16,7 +24,7 @@ const Footer = () => {
                 py: 6,
                 px: 2,
                 backgroundColor: "rgba(18, 18, 18, 0.95)",
-                borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+                borderTop: "1px solid rgba(255, 255, 255, 0.1)"
             }}
         >
             <Container maxWidth="lg">
@@ -26,7 +34,8 @@ const Footer = () => {
                             🍉 Meloncholy Games
                         </Typography>
                         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                            Crafting unique gaming experiences with passion and creativity. Based in the United States.
+                            Crafting unique gaming experiences with passion and creativity. Based in
+                            the United States.
                         </Typography>
                     </Grid>
 
@@ -35,16 +44,36 @@ const Footer = () => {
                             Navigation
                         </Typography>
                         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                            <MuiLink component={Link} to="/" color="text.secondary" underline="hover">
+                            <MuiLink
+                                component={Link}
+                                to="/"
+                                color="text.secondary"
+                                underline="hover"
+                            >
                                 Home
                             </MuiLink>
-                            <MuiLink component={Link} to="/about" color="text.secondary" underline="hover">
+                            <MuiLink
+                                component={Link}
+                                to="/about"
+                                color="text.secondary"
+                                underline="hover"
+                            >
                                 About Us
                             </MuiLink>
-                            <MuiLink component={Link} to="/project-cantaloupe" color="text.secondary" underline="hover">
+                            <MuiLink
+                                component={Link}
+                                to="/project-cantaloupe"
+                                color="text.secondary"
+                                underline="hover"
+                            >
                                 Project Cantaloupe
                             </MuiLink>
-                            <MuiLink component={Link} to="/contact" color="text.secondary" underline="hover">
+                            <MuiLink
+                                component={Link}
+                                to="/contact"
+                                color="text.secondary"
+                                underline="hover"
+                            >
                                 Contact
                             </MuiLink>
                         </Box>
@@ -58,28 +87,48 @@ const Footer = () => {
                             <IconButton
                                 aria-label="Twitter"
                                 color="primary"
-                                sx={{ "&:hover": { transform: "translateY(-3px)", transition: "transform 0.2s" } }}
+                                sx={{
+                                    "&:hover": {
+                                        transform: "translateY(-3px)",
+                                        transition: "transform 0.2s"
+                                    }
+                                }}
                             >
                                 <TwitterIcon />
                             </IconButton>
                             <IconButton
                                 aria-label="GitHub"
                                 color="primary"
-                                sx={{ "&:hover": { transform: "translateY(-3px)", transition: "transform 0.2s" } }}
+                                sx={{
+                                    "&:hover": {
+                                        transform: "translateY(-3px)",
+                                        transition: "transform 0.2s"
+                                    }
+                                }}
                             >
                                 <GitHubIcon />
                             </IconButton>
                             <IconButton
                                 aria-label="LinkedIn"
                                 color="primary"
-                                sx={{ "&:hover": { transform: "translateY(-3px)", transition: "transform 0.2s" } }}
+                                sx={{
+                                    "&:hover": {
+                                        transform: "translateY(-3px)",
+                                        transition: "transform 0.2s"
+                                    }
+                                }}
                             >
                                 <LinkedInIcon />
                             </IconButton>
                             <IconButton
                                 aria-label="Email"
                                 color="primary"
-                                sx={{ "&:hover": { transform: "translateY(-3px)", transition: "transform 0.2s" } }}
+                                sx={{
+                                    "&:hover": {
+                                        transform: "translateY(-3px)",
+                                        transition: "transform 0.2s"
+                                    }
+                                }}
                             >
                                 <EmailIcon />
                             </IconButton>

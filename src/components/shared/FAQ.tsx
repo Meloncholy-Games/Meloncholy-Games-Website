@@ -30,18 +30,20 @@ const FAQ = ({ items }: FAQProps) => {
                         "&:before": { display: "none" },
                         borderRadius: 2,
                         overflow: "hidden",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
                     }}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         sx={{
-                            bgcolor: expanded === `panel${index}` ? "primary.main" : "background.paper",
+                            bgcolor:
+                                expanded === `panel${index}` ? "primary.main" : "background.paper",
                             color: expanded === `panel${index}` ? "white" : "text.primary",
                             transition: "all 0.3s ease-in-out",
                             "&:hover": {
-                                bgcolor: expanded === `panel${index}` ? "primary.dark" : "action.hover",
-                            },
+                                bgcolor:
+                                    expanded === `panel${index}` ? "primary.dark" : "action.hover"
+                            }
                         }}
                     >
                         <Typography variant="h6" fontWeight={600}>

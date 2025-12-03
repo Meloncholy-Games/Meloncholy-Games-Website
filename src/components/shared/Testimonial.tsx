@@ -23,12 +23,19 @@ const Testimonial = ({ quote, author, role, avatar, rating }: TestimonialProps) 
                     left: 0,
                     width: 4,
                     height: "100%",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                },
+                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                }
             }}
         >
             <CardContent>
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 2 }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        mb: 2
+                    }}
+                >
                     <FormatQuoteIcon sx={{ fontSize: 48, color: "primary.main", opacity: 0.3 }} />
                     {rating && <Rating value={rating} readOnly size="small" />}
                 </Box>
@@ -40,7 +47,7 @@ const Testimonial = ({ quote, author, role, avatar, rating }: TestimonialProps) 
                         sx={{
                             width: 50,
                             height: 50,
-                            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                         }}
                     >
                         {avatar || author.charAt(0)}

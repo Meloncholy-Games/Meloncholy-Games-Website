@@ -1,4 +1,18 @@
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useMediaQuery, useTheme } from "@mui/material";
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    Button,
+    Box,
+    IconButton,
+    Drawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    useMediaQuery,
+    useTheme
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -13,7 +27,7 @@ const Header = () => {
         { label: "Home", path: "/" },
         { label: "About", path: "/about" },
         { label: "Project Cantaloupe", path: "/project-cantaloupe" },
-        { label: "Contact", path: "/contact" },
+        { label: "Contact", path: "/contact" }
     ];
 
     const handleDrawerToggle = () => {
@@ -44,7 +58,11 @@ const Header = () => {
 
     return (
         <>
-            <AppBar position="sticky" elevation={0} sx={{ backdropFilter: "blur(10px)", backgroundColor: "rgba(18, 18, 18, 0.8)" }}>
+            <AppBar
+                position="sticky"
+                elevation={0}
+                sx={{ backdropFilter: "blur(10px)", backgroundColor: "rgba(18, 18, 18, 0.8)" }}
+            >
                 <Toolbar>
                     <Typography
                         variant="h6"
@@ -55,7 +73,7 @@ const Header = () => {
                             textDecoration: "none",
                             color: "inherit",
                             fontWeight: 700,
-                            fontSize: { xs: "1.2rem", md: "1.5rem" },
+                            fontSize: { xs: "1.2rem", md: "1.5rem" }
                         }}
                     >
                         🍉 Meloncholy Games
@@ -77,11 +95,14 @@ const Header = () => {
                                     component={Link}
                                     to={item.path}
                                     sx={{
-                                        color: location.pathname === item.path ? "primary.main" : "white",
+                                        color:
+                                            location.pathname === item.path
+                                                ? "primary.main"
+                                                : "white",
                                         fontWeight: location.pathname === item.path ? 700 : 400,
                                         "&:hover": {
-                                            backgroundColor: "rgba(255, 255, 255, 0.1)",
-                                        },
+                                            backgroundColor: "rgba(255, 255, 255, 0.1)"
+                                        }
                                     }}
                                 >
                                     {item.label}
@@ -96,11 +117,11 @@ const Header = () => {
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 ModalProps={{
-                    keepMounted: true,
+                    keepMounted: true
                 }}
                 sx={{
                     display: { xs: "block", md: "none" },
-                    "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 },
+                    "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 }
                 }}
             >
                 {drawer}

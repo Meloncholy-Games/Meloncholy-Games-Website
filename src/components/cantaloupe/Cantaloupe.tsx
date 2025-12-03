@@ -17,8 +17,8 @@ const Cantaloupe = () => {
                 </Grid>
                 <Grid item>
                     <Typography variant={"h4"}>
-                        This will host the future website for project cantaloupe. In the meantime, it
-                        is live so we can link to it from socials and for AWS purposes.
+                        This will host the future website for project cantaloupe. In the meantime,
+                        it is live so we can link to it from socials and for AWS purposes.
                     </Typography>
                 </Grid>
             </Grid>

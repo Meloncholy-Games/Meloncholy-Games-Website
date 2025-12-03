@@ -11,7 +11,14 @@ interface BlogCardProps {
     readTime?: string;
 }
 
-const BlogCard = ({ title, excerpt, date, category, image, readTime = "5 min read" }: BlogCardProps) => {
+const BlogCard = ({
+    title,
+    excerpt,
+    date,
+    category,
+    image,
+    readTime = "5 min read"
+}: BlogCardProps) => {
     return (
         <Card
             sx={{
@@ -22,9 +29,9 @@ const BlogCard = ({ title, excerpt, date, category, image, readTime = "5 min rea
                 "&:hover": {
                     transform: "translateY(-8px)",
                     "& .read-more": {
-                        transform: "translateX(8px)",
-                    },
-                },
+                        transform: "translateX(8px)"
+                    }
+                }
             }}
         >
             <CardMedia
@@ -37,7 +44,7 @@ const BlogCard = ({ title, excerpt, date, category, image, readTime = "5 min rea
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "4rem",
+                    fontSize: "4rem"
                 }}
             >
                 {!image && "📰"}
@@ -58,7 +65,9 @@ const BlogCard = ({ title, excerpt, date, category, image, readTime = "5 min rea
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
                     {excerpt}
                 </Typography>
-                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <Box
+                    sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                >
                     <Typography variant="caption" color="text.secondary">
                         {readTime}
                     </Typography>

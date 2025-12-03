@@ -13,7 +13,7 @@ const TeamSection = () => {
             avatar: "🧑‍💻",
             bio: "Full-stack developer with a passion for creating smooth, responsive gameplay experiences.",
             skills: ["Game Development", "Programming", "System Design"],
-            icon: <CodeIcon />,
+            icon: <CodeIcon />
         },
         {
             name: "Jordan Rivera",
@@ -21,7 +21,7 @@ const TeamSection = () => {
             avatar: "🎨",
             bio: "Visual artist bringing worlds to life through vibrant colors and unique character designs.",
             skills: ["Character Design", "Environment Art", "Animation"],
-            icon: <BrushIcon />,
+            icon: <BrushIcon />
         },
         {
             name: "Sam Taylor",
@@ -29,7 +29,7 @@ const TeamSection = () => {
             avatar: "🎵",
             bio: "Audio wizard crafting immersive soundscapes and memorable musical themes.",
             skills: ["Music Composition", "Sound Effects", "Audio Engineering"],
-            icon: <MusicNoteIcon />,
+            icon: <MusicNoteIcon />
         },
         {
             name: "Morgan Lee",
@@ -37,17 +37,28 @@ const TeamSection = () => {
             avatar: "📋",
             bio: "Keeping the team on track while building strong relationships with our player community.",
             skills: ["Project Management", "Community Building", "Marketing"],
-            icon: <BusinessCenterIcon />,
-        },
+            icon: <BusinessCenterIcon />
+        }
     ];
 
     return (
         <Container maxWidth="lg" sx={{ py: 10 }}>
             <AnimatedSection animation="fadeIn">
-                <Typography variant="h3" align="center" gutterBottom fontWeight={700} sx={{ mb: 2 }}>
+                <Typography
+                    variant="h3"
+                    align="center"
+                    gutterBottom
+                    fontWeight={700}
+                    sx={{ mb: 2 }}
+                >
                     Meet the Team
                 </Typography>
-                <Typography variant="h6" align="center" color="text.secondary" sx={{ mb: 8, maxWidth: 700, mx: "auto" }}>
+                <Typography
+                    variant="h6"
+                    align="center"
+                    color="text.secondary"
+                    sx={{ mb: 8, maxWidth: 700, mx: "auto" }}
+                >
                     A small but mighty team of passionate creators building games we believe in.
                 </Typography>
             </AnimatedSection>
@@ -58,13 +69,20 @@ const TeamSection = () => {
                         <AnimatedSection animation="slideUp" delay={index * 100}>
                             <Card sx={{ height: "100%", p: 2 }}>
                                 <CardContent>
-                                    <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 2 }}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "flex-start",
+                                            gap: 2,
+                                            mb: 2
+                                        }}
+                                    >
                                         <Avatar
                                             sx={{
                                                 width: 80,
                                                 height: 80,
                                                 fontSize: "3rem",
-                                                bgcolor: "primary.main",
+                                                bgcolor: "primary.main"
                                             }}
                                         >
                                             {member.avatar}
@@ -73,20 +91,41 @@ const TeamSection = () => {
                                             <Typography variant="h5" fontWeight={700} gutterBottom>
                                                 {member.name}
                                             </Typography>
-                                            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 1,
+                                                    mb: 1
+                                                }}
+                                            >
                                                 {member.icon}
-                                                <Typography variant="subtitle1" color="primary" fontWeight={600}>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    color="primary"
+                                                    fontWeight={600}
+                                                >
                                                     {member.role}
                                                 </Typography>
                                             </Box>
                                         </Box>
                                     </Box>
-                                    <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+                                    <Typography
+                                        variant="body1"
+                                        color="text.secondary"
+                                        sx={{ mb: 2 }}
+                                    >
                                         {member.bio}
                                     </Typography>
                                     <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
                                         {member.skills.map((skill, idx) => (
-                                            <Chip key={idx} label={skill} size="small" variant="outlined" color="primary" />
+                                            <Chip
+                                                key={idx}
+                                                label={skill}
+                                                size="small"
+                                                variant="outlined"
+                                                color="primary"
+                                            />
                                         ))}
                                     </Box>
                                 </CardContent>

@@ -12,7 +12,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                minHeight: "100vh",
+                minHeight: "100vh"
             }}
         >
             <Header />

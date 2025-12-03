@@ -14,7 +14,7 @@ const FeatureCard = ({
     title,
     description,
     gradient = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    delay = 0,
+    delay = 0
 }: FeatureCardProps) => {
     return (
         <Card
@@ -26,8 +26,8 @@ const FeatureCard = ({
                 "&:hover": {
                     transform: "translateY(-8px)",
                     "& .icon-wrapper": {
-                        transform: "scale(1.1) rotate(5deg)",
-                    },
+                        transform: "scale(1.1) rotate(5deg)"
+                    }
                 },
                 "&::before": {
                     content: '""',
@@ -36,8 +36,8 @@ const FeatureCard = ({
                     left: 0,
                     width: "100%",
                     height: 4,
-                    background: gradient,
-                },
+                    background: gradient
+                }
             }}
         >
             <CardContent sx={{ p: 3 }}>
@@ -45,7 +45,7 @@ const FeatureCard = ({
                     className="icon-wrapper"
                     sx={{
                         mb: 2,
-                        transition: "transform 0.3s ease-in-out",
+                        transition: "transform 0.3s ease-in-out"
                     }}
                 >
                     {icon}

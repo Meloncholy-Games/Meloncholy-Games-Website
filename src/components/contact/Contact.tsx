@@ -1,4 +1,14 @@
-import { Container, Typography, Grid, Card, CardContent, Box, TextField, Button, Paper } from "@mui/material";
+import {
+    Container,
+    Typography,
+    Grid,
+    Card,
+    CardContent,
+    Box,
+    TextField,
+    Button,
+    Paper
+} from "@mui/material";
 import { useState } from "react";
 import PageLayout from "../shared/PageLayout";
 import ParallaxHero from "../shared/ParallaxHero";
@@ -14,13 +24,13 @@ const Contact = () => {
         name: "",
         email: "",
         subject: "",
-        message: "",
+        message: ""
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         });
     };
 
@@ -36,29 +46,29 @@ const Contact = () => {
             title: "Email Us",
             description: "For business inquiries and support",
             contact: "hello@meloncholy.games",
-            action: "Send Email",
+            action: "Send Email"
         },
         {
             icon: <DiscordIcon sx={{ fontSize: 48, color: "secondary.main" }} />,
             title: "Discord Community",
             description: "Join our community and chat with us",
             contact: "discord.gg/meloncholygames",
-            action: "Join Server",
+            action: "Join Server"
         },
         {
             icon: <TwitterIcon sx={{ fontSize: 48, color: "primary.main" }} />,
             title: "Twitter",
             description: "Follow for updates and announcements",
             contact: "@MeloncholyGames",
-            action: "Follow Us",
+            action: "Follow Us"
         },
         {
             icon: <GitHubIcon sx={{ fontSize: 48, color: "secondary.main" }} />,
             title: "GitHub",
             description: "Check out our open source projects",
             contact: "github.com/meloncholy-games",
-            action: "View Profile",
-        },
+            action: "View Profile"
+        }
     ];
 
     return (
@@ -77,10 +87,15 @@ const Contact = () => {
                                 Send Us a Message
                             </Typography>
                             <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-                                Have a question, feedback, or just want to say hi? Fill out the form and we'll get back to you as soon as possible.
+                                Have a question, feedback, or just want to say hi? Fill out the form
+                                and we'll get back to you as soon as possible.
                             </Typography>
 
-                            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                            <Box
+                                component="form"
+                                onSubmit={handleSubmit}
+                                sx={{ display: "flex", flexDirection: "column", gap: 3 }}
+                            >
                                 <TextField
                                     fullWidth
                                     label="Name"
@@ -140,19 +155,42 @@ const Contact = () => {
                             </Typography>
                             <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
                                 {contactMethods.map((method, index) => (
-                                    <AnimatedSection animation="slideUp" delay={index * 100} key={index}>
+                                    <AnimatedSection
+                                        animation="slideUp"
+                                        delay={index * 100}
+                                        key={index}
+                                    >
                                         <Card>
                                             <CardContent sx={{ p: 3 }}>
-                                                <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
+                                                <Box
+                                                    sx={{
+                                                        display: "flex",
+                                                        alignItems: "flex-start",
+                                                        gap: 2
+                                                    }}
+                                                >
                                                     <Box sx={{ flexShrink: 0 }}>{method.icon}</Box>
                                                     <Box sx={{ flexGrow: 1 }}>
-                                                        <Typography variant="h6" fontWeight={600} gutterBottom>
+                                                        <Typography
+                                                            variant="h6"
+                                                            fontWeight={600}
+                                                            gutterBottom
+                                                        >
                                                             {method.title}
                                                         </Typography>
-                                                        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                                                        <Typography
+                                                            variant="body2"
+                                                            color="text.secondary"
+                                                            sx={{ mb: 1 }}
+                                                        >
                                                             {method.description}
                                                         </Typography>
-                                                        <Typography variant="body2" color="primary" fontWeight={600} sx={{ mb: 2 }}>
+                                                        <Typography
+                                                            variant="body2"
+                                                            color="primary"
+                                                            fontWeight={600}
+                                                            sx={{ mb: 2 }}
+                                                        >
                                                             {method.contact}
                                                         </Typography>
                                                         <Button variant="outlined" size="small">
@@ -175,8 +213,9 @@ const Contact = () => {
                         sx={{
                             p: 6,
                             textAlign: "center",
-                            background: "linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%)",
-                            borderRadius: 4,
+                            background:
+                                "linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%)",
+                            borderRadius: 4
                         }}
                     >
                         <Typography variant="h5" gutterBottom fontWeight={700}>
