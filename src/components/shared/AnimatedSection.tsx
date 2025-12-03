@@ -68,14 +68,15 @@ const AnimatedSection = ({
         return { ...baseStyles, opacity: 1, transform: "none" };
     };
 
-    const combinedSx: SxProps<Theme> = sx
+    const animationStyles = getAnimationStyles();
+    const combinedSx = sx
         ? Array.isArray(sx)
-            ? ([getAnimationStyles()].concat(sx) as SxProps<Theme>)
-            : [getAnimationStyles(), sx]
-        : getAnimationStyles();
+            ? [animationStyles].concat(sx)
+            : [animationStyles, sx]
+        : animationStyles;
 
     return (
-        <Box ref={sectionRef} sx={combinedSx} {...props}>
+        <Box ref={sectionRef} sx={combinedSx as SxProps<Theme>} {...props}>
             {children}
         </Box>
     );
