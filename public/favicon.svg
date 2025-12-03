@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#F4C542" rx="20"/>
+  <circle cx="64" cy="64" r="45" fill="#7CB862"/>
+  <circle cx="64" cy="64" r="43" fill="#8FD869"/>
+
+  <!-- Cantaloupe texture dots -->
+  <circle cx="50" cy="50" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="70" cy="48" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="60" cy="55" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="45" cy="65" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="75" cy="62" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="55" cy="75" r="2" fill="#7CB862" opacity="0.6"/>
+  <circle cx="70" cy="78" r="2" fill="#7CB862" opacity="0.6"/>
+
+  <!-- Stem -->
+  <path d="M 64 20 Q 66 22 65 26 L 64 28" stroke="#6B9E4C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Sad eyes -->
+  <path d="M 50 58 Q 52 60 54 58" stroke="#5A7C48" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 74 58 Q 76 60 78 58" stroke="#5A7C48" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Sad mouth -->
+  <path d="M 55 75 Q 64 70 73 75" stroke="#5A7C48" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Tears -->
+  <path d="M 48 65 Q 46 68 48 70 Q 50 68 48 65" fill="#4A9FD8"/>
+  <path d="M 45 72 Q 44 74 45 75 Q 46 74 45 72" fill="#4A9FD8"/>
+  <path d="M 80 68 Q 78 71 80 73 Q 82 71 80 68" fill="#4A9FD8"/>
+
+  <!-- Blush -->
+  <ellipse cx="45" cy="68" rx="5" ry="3" fill="#A67C52" opacity="0.3"/>
+  <ellipse cx="83" cy="68" rx="5" ry="3" fill="#A67C52" opacity="0.3"/>
+</svg>

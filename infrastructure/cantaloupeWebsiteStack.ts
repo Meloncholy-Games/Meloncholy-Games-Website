@@ -31,9 +31,8 @@ class CantaloupeWebsiteStack extends Stack {
         });
 
         const websiteDistribution = this.createWebsiteDistribution(certificate);
-        const wwwRedirectDistribution = this.createWWWRedirectBucket(certificate);
 
-        this.createDomainRegistration(websiteDistribution, wwwRedirectDistribution);
+        this.createDomainRegistration(websiteDistribution);
     }
 
     private createWebsiteDistribution(certificate: ICertificate): Distribution {
@@ -69,77 +68,15 @@ class CantaloupeWebsiteStack extends Stack {
         return websiteDistribution;
     }
 
-    private createWWWRedirectBucket(certificate: ICertificate): Distribution {
-        const wwwRedirectBucketName = "www.meloncholy.games";
-        const wwwRedirectBucket = new Bucket(this, wwwRedirectBucketName, {
-            bucketName: wwwRedirectBucketName,
-            removalPolicy: RemovalPolicy.DESTROY,
-            websiteRedirect: {
-                hostName: "meloncholy.games",
-                protocol: RedirectProtocol.HTTPS
-            }
-        });
-        return new Distribution(this, "wwwRedirectDistribution", {
-            defaultBehavior: {
-                origin: new S3StaticWebsiteOrigin(wwwRedirectBucket),
-                viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS
-            },
-            certificate,
-            domainNames: ["www.meloncholy.games"]
-        });
-    }
-
-    private createDomainRegistration(
-        websiteDistribution: Distribution,
-        wwwRedirectDistribution: Distribution
-    ) {
+    private createDomainRegistration(websiteDistribution: Distribution) {
         const zone = new HostedZone(this, "cantaloupeHostedZone", {
             zoneName: "meloncholy.games"
         });
-        this.createEmailRecords(zone);
-        this.createWebsiteRecords(zone, websiteDistribution, wwwRedirectDistribution);
+        this.createWebsiteRecords(zone, websiteDistribution);
         this.createAPINameRecords(zone);
     }
 
-    private createEmailRecords(zone: HostedZone) {
-        this.createEmailDomainMailgunMapping(zone);
-        this.createEmailDKIMMapping(zone);
-        new TxtRecord(this, `cantaloupeEmailDMARCRecord`, {
-            zone,
-            recordName: "_dmarc",
-            values: ["v=DMARC1; p=quarantine"]
-        });
-    }
-
-    private createEmailDomainMailgunMapping(zone: HostedZone) {
-        new MxRecord(this, `cantaloupeEmailMailGunRecord`, {
-            zone,
-            values: [
-                { priority: 10, hostName: "mxa.mailgun.org" },
-                { priority: 10, hostName: "mxb.mailgun.org" }
-            ]
-        });
-        new TxtRecord(this, "cantaloupeEmailMailGunAllowlistRecord", {
-            zone,
-            values: ["v=spf1 include:mailgun.org ~all"]
-        });
-    }
-
-    private createEmailDKIMMapping(zone: HostedZone) {
-        new TxtRecord(this, `cantaloupeEmailDKIMRecord`, {
-            zone,
-            recordName: "pic._domainkey",
-            values: [
-                "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC19SVn8talRO6mvgihPD6U6TuV682XwK5hNLEkz2FyJaVwSboF7I6y29EPvyrjVQZIywtDI++3uaVZPvcwZ42lS4B79hjbn0mjQS4RLLFtp8sEZ1H+laSWvvFvUPG8ihIued0mYOp5ZDUVDtpzM66Jr4eF0jKLoQCk+q5extoDZQIDAQAB"
-            ]
-        });
-    }
-
-    private createWebsiteRecords(
-        zone: HostedZone,
-        websiteDistribution: Distribution,
-        wwwRedirectDistribution: Distribution
-    ) {
+    private createWebsiteRecords(zone: HostedZone, websiteDistribution: Distribution) {
         new CnameRecord(this, `cantaloupeWebsiteCertificateMapping`, {
             zone,
             recordName: "_99ee3fa051e4bbd1a4e27374900be2c4",
@@ -148,11 +85,6 @@ class CantaloupeWebsiteStack extends Stack {
         new ARecord(this, `cantaloupeWebsiteMapping`, {
             zone,
             target: RecordTarget.fromAlias(new CloudFrontTarget(websiteDistribution))
-        });
-        new ARecord(this, `cantaloupeWWWRedirectMapping`, {
-            zone,
-            recordName: "www",
-            target: RecordTarget.fromAlias(new CloudFrontTarget(wwwRedirectDistribution))
         });
     }
 
