@@ -5,17 +5,8 @@ import {
     ICertificate
 } from "aws-cdk-lib/aws-certificatemanager";
 import { Distribution, ViewerProtocolPolicy } from "aws-cdk-lib/aws-cloudfront";
-import { S3BucketOrigin, S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
-import {
-    ARecord,
-    CnameRecord,
-    HostedZone,
-    MxRecord,
-    RecordTarget,
-    TxtRecord
-} from "aws-cdk-lib/aws-route53";
-import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
-import { Bucket, RedirectProtocol } from "aws-cdk-lib/aws-s3";
+import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 
 import { Construct } from "constructs";
@@ -30,9 +21,7 @@ class CantaloupeWebsiteStack extends Stack {
             validation: CertificateValidation.fromDns()
         });
 
-        const websiteDistribution = this.createWebsiteDistribution(certificate);
-
-        this.createDomainRegistration(websiteDistribution);
+        this.createWebsiteDistribution(certificate);
     }
 
     private createWebsiteDistribution(certificate: ICertificate): Distribution {
@@ -66,44 +55,6 @@ class CantaloupeWebsiteStack extends Stack {
         });
 
         return websiteDistribution;
-    }
-
-    private createDomainRegistration(websiteDistribution: Distribution) {
-        const zone = new HostedZone(this, "cantaloupeHostedZone", {
-            zoneName: "meloncholy.games"
-        });
-        this.createWebsiteRecords(zone, websiteDistribution);
-        this.createAPINameRecords(zone);
-    }
-
-    private createWebsiteRecords(zone: HostedZone, websiteDistribution: Distribution) {
-        new CnameRecord(this, `cantaloupeWebsiteCertificateMapping`, {
-            zone,
-            recordName: "_99ee3fa051e4bbd1a4e27374900be2c4",
-            domainName: "_db132e49113913e322150a2ec860dd33.djqtsrsxkq.acm-validations.aws"
-        });
-        new ARecord(this, `cantaloupeWebsiteMapping`, {
-            zone,
-            target: RecordTarget.fromAlias(new CloudFrontTarget(websiteDistribution))
-        });
-    }
-
-    private createAPINameRecords(zone: HostedZone) {
-        new CnameRecord(this, `cantaloupeCertificateMapping`, {
-            zone,
-            recordName: "_8ba998a1afd9cb749e31427d9f17f3a5.cantaloupe",
-            domainName: "_5c875b139848b77f4fb079516c56c1d4.sdgjtdhdhz.acm-validations.aws"
-        });
-        new CnameRecord(this, `cantaloupeRestApiMapping`, {
-            zone,
-            recordName: "api.cantaloupe",
-            domainName: "d1i9deldy720mv.cloudfront.net"
-        });
-        new CnameRecord(this, `cantaloupeSubscriptionApiMapping`, {
-            zone,
-            recordName: "subscriptions.cantaloupe",
-            domainName: "d-bv0r65mfbb.execute-api.us-east-1.amazonaws.com"
-        });
     }
 }
 
