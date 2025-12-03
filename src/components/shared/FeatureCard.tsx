@@ -7,7 +7,7 @@ type FeatureCardProps = {
     description: string;
     gradient?: string;
     delay?: number;
-}
+};
 
 const FeatureCard = ({
     icon,

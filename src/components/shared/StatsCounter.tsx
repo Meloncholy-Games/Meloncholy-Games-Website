@@ -7,17 +7,17 @@ type Stat = {
     label: string;
     suffix?: string;
     prefix?: string;
-}
+};
 
 type StatsCounterProps = {
     stats: Stat[];
-}
+};
 
 const StatsCounter = ({ stats }: StatsCounterProps) => {
     return (
         <Grid container spacing={3}>
             {stats.map((stat, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                     <AnimatedSection animation="scale" delay={index * 100}>
                         <StatItem stat={stat} />
                     </AnimatedSection>
@@ -50,7 +50,9 @@ const StatItem = ({ stat }: { stat: Stat }) => {
             }
         }, stepDuration);
 
-        return () => { clearInterval(timer); };
+        return () => {
+            clearInterval(timer);
+        };
     }, [isVisible, stat.value]);
 
     useEffect(() => {

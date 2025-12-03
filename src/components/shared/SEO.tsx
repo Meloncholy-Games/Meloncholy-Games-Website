@@ -4,7 +4,7 @@ type SEOProps = {
     title?: string;
     description?: string;
     keywords?: string;
-}
+};
 
 const SEO = ({
     title = "Meloncholy Games",

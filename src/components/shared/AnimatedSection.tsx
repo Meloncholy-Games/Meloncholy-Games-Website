@@ -6,7 +6,7 @@ type AnimatedSectionProps = {
     delay?: number;
     children: React.ReactNode;
     sx?: SxProps<Theme>;
-} & Omit<BoxProps, "sx">
+} & Omit<BoxProps, "sx">;
 
 const AnimatedSection = ({
     animation = "fadeIn",
@@ -23,7 +23,9 @@ const AnimatedSection = ({
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => { setIsVisible(true); }, delay);
+                        setTimeout(() => {
+                            setIsVisible(true);
+                        }, delay);
                     }
                 });
             },
@@ -68,7 +70,7 @@ const AnimatedSection = ({
 
     const combinedSx: SxProps<Theme> = sx
         ? Array.isArray(sx)
-            ? [getAnimationStyles()].concat(sx)
+            ? ([getAnimationStyles()].concat(sx) as SxProps<Theme>)
             : [getAnimationStyles(), sx]
         : getAnimationStyles();
 

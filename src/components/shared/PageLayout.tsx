@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 type PageLayoutProps = {
     children: React.ReactNode;
-}
+};
 
 const PageLayout = ({ children }: PageLayoutProps) => {
     return (

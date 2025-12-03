@@ -5,11 +5,11 @@ import { useState } from "react";
 type FAQItem = {
     question: string;
     answer: string;
-}
+};
 
 type FAQProps = {
     items: FAQItem[];
-}
+};
 
 const FAQ = ({ items }: FAQProps) => {
     const [expanded, setExpanded] = useState<string | false>(false);

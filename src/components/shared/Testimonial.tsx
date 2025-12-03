@@ -7,7 +7,7 @@ type TestimonialProps = {
     role?: string;
     avatar?: string;
     rating?: number;
-}
+};
 
 const Testimonial = ({ quote, author, role, avatar, rating }: TestimonialProps) => {
     return (

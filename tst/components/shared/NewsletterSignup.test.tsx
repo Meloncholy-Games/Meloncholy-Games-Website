@@ -20,7 +20,7 @@ describe("NewsletterSignup", () => {
         const user = userEvent.setup();
         render(<NewsletterSignup />);
 
-        const emailInput = screen.getByPlaceholderText("Enter your email");
+        const emailInput = screen.getByPlaceholderText("Enter your email") as HTMLInputElement;
         await user.type(emailInput, "test@example.com");
 
         expect(emailInput.value).toBe("test@example.com");

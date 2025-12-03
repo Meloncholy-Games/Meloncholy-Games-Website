@@ -9,7 +9,7 @@ type BlogCardProps = {
     category: string;
     image?: string;
     readTime?: string;
-}
+};
 
 const BlogCard = ({
     title,

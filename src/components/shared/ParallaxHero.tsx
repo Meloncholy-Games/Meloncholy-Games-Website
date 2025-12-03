@@ -7,7 +7,7 @@ type ParallaxHeroProps = {
     height?: string;
     backgroundImage?: string;
     backgroundColor?: string;
-}
+};
 
 const ParallaxHero = ({
     title,
@@ -24,7 +24,9 @@ const ParallaxHero = ({
         };
 
         window.addEventListener("scroll", handleScroll);
-        return () => { window.removeEventListener("scroll", handleScroll); };
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, []);
 
     return (

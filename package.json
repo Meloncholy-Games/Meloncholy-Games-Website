@@ -4,8 +4,8 @@
     "description": "Website and Subdomains for Meloncholy Games",
     "scripts": {
         "clean": "rm -rf cdk.out coverage dist",
-        "check-format": "prettier --check \"src/**/*.ts*\" \"tst/**/*.ts*\" \"infrastructure/**/*.ts\"",
-        "format": "prettier --write \"src/**/*.ts*\" \"tst/**/*.ts*\" \"infrastructure/**/*.ts\"",
+        "check-format": "prettier --check \"src/**/*.ts*\" \"tst/**/*.ts*\"",
+        "format": "prettier --write \"src/**/*.ts*\" \"tst/**/*.ts*\"",
         "lint": "eslint \"src/**/*.ts*\" \"tst/**/*.ts*\"",
         "types": "tsc --noEmit",
         "test": "jest --silent",

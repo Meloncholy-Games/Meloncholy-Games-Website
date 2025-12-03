@@ -18,13 +18,17 @@ const NotFound = () => {
             const interval = setInterval(() => {
                 setMelonRotation((prev) => (prev + 10) % 360);
             }, 16);
-            return () => { clearInterval(interval); };
+            return () => {
+                clearInterval(interval);
+            };
         }
     }, [isSpinning]);
 
     const handleMelonClick = () => {
         setIsSpinning(true);
-        setTimeout(() => { setIsSpinning(false); }, 2000);
+        setTimeout(() => {
+            setIsSpinning(false);
+        }, 2000);
     };
 
     const quickLinks = [
@@ -118,7 +122,7 @@ const NotFound = () => {
 
                     <Grid container spacing={3} sx={{ mb: 6, maxWidth: 900 }}>
                         {quickLinks.map((link) => (
-                            <Grid item xs={12} sm={6} md={3} key={link.title}>
+                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={link.title}>
                                 <Card
                                     component={Link}
                                     to={link.link}
