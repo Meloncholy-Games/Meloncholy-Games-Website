@@ -2,7 +2,6 @@ import { Container, Typography, Grid, Card, CardContent, Box, Button, Chip, Pape
 import PageLayout from "../shared/PageLayout";
 import ParallaxHero from "../shared/ParallaxHero";
 import AnimatedSection from "../shared/AnimatedSection";
-import StructuredData from "../shared/StructuredData";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import GamepadIcon from "@mui/icons-material/Gamepad";
@@ -53,7 +52,6 @@ const CantaloupePage = () => {
 
     return (
         <PageLayout>
-            <StructuredData type="VideoGame" />
             <ParallaxHero
                 title="Project Cantaloupe"
                 subtitle="A 2D platformer adventure filled with wonder and challenge"

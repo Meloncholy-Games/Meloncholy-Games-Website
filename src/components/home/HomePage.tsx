@@ -2,7 +2,6 @@ import { Container, Typography, Grid, Card, CardContent, Box, Button } from "@mu
 import { Link } from "react-router-dom";
 import PageLayout from "../shared/PageLayout";
 import AnimatedSection from "../shared/AnimatedSection";
-import StructuredData from "../shared/StructuredData";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import GroupsIcon from "@mui/icons-material/Groups";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
@@ -12,8 +11,6 @@ import logo from "../../assets/images/meloncholyGames.png";
 const HomePage = () => {
     return (
         <PageLayout>
-            <StructuredData type="WebSite" />
-            <StructuredData type="Organization" />
             <Box
                 sx={{
                     minHeight: "90vh",
