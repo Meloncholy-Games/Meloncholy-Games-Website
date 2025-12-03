@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-interface SEOProps {
+type SEOProps = {
     title?: string;
     description?: string;
     keywords?: string;

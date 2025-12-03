@@ -79,8 +79,8 @@ const About = () => {
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            paragraph
-                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                            component="p"
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8, mb: 2 }}
                         >
                             Meloncholy Games was born from a simple idea: gaming should be fun,
                             creative, and bring people together. What started as late-night gaming
@@ -90,8 +90,8 @@ const About = () => {
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            paragraph
-                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                            component="p"
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8, mb: 2 }}
                         >
                             We're a small team of dreamers, artists, and developers who believe that
                             the best games come from genuine passion and creative freedom. We're not
@@ -101,8 +101,8 @@ const About = () => {
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            paragraph
-                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                            component="p"
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8, mb: 2 }}
                         >
                             Every game we make is a labor of love, crafted with attention to detail
                             and a commitment to quality. We take inspiration from the games we grew

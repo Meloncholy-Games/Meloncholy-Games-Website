@@ -30,7 +30,7 @@ const Router404Inject = () => {
     useEffect(() => {
         const splitPath = location.search.split("/");
         if (splitPath[0] === "?") {
-            navigate(splitPath[1]);
+            void navigate(splitPath[1]);
         }
     }, [location, navigate]);
 

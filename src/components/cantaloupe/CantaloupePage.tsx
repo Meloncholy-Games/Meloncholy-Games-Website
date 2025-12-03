@@ -125,7 +125,7 @@ const CantaloupePage = () => {
                     </Typography>
                     <Grid container spacing={4}>
                         {features.map((feature, index) => (
-                            <Grid item xs={12} md={6} key={index}>
+                            <Grid size={{ xs: 12, md: 6 }} key={index}>
                                 <AnimatedSection animation="slideUp" delay={index * 100}>
                                     <Card sx={{ height: "100%", p: 2 }}>
                                         <CardContent>
@@ -164,7 +164,7 @@ const CantaloupePage = () => {
                         </Typography>
                         <Grid container spacing={2}>
                             {highlights.map((highlight, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                                     <AnimatedSection animation="scale" delay={index * 50}>
                                         <Paper
                                             elevation={0}
@@ -199,7 +199,7 @@ const CantaloupePage = () => {
                     </Typography>
                     <Grid container spacing={3}>
                         {screenshots.map((screenshot, index) => (
-                            <Grid item xs={12} sm={6} key={index}>
+                            <Grid size={{ xs: 12, sm: 6 }} key={index}>
                                 <AnimatedSection animation="scale" delay={index * 100}>
                                     <Paper
                                         elevation={4}
@@ -244,8 +244,8 @@ const CantaloupePage = () => {
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            paragraph
-                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                            component="p"
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8, mb: 2 }}
                         >
                             In a world where reality bends and dreams take shape, you play as a lone
                             wanderer seeking to restore balance to a fractured realm. Navigate
@@ -255,8 +255,8 @@ const CantaloupePage = () => {
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            paragraph
-                            sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}
+                            component="p"
+                            sx={{ fontSize: "1.1rem", lineHeight: 1.8, mb: 2 }}
                         >
                             Ancient powers lie dormant, waiting to be awakened. Will you master them
                             in time to face the darkness that threatens to consume everything? Your

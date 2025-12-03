@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, Box, Avatar, Rating } from "@mui/material";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
-interface TestimonialProps {
+type TestimonialProps = {
     quote: string;
     author: string;
     role?: string;
@@ -50,7 +50,7 @@ const Testimonial = ({ quote, author, role, avatar, rating }: TestimonialProps) 
                             background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                         }}
                     >
-                        {avatar || author.charAt(0)}
+                        {avatar ?? author.charAt(0)}
                     </Avatar>
                     <Box>
                         <Typography variant="subtitle1" fontWeight={700}>

@@ -1,15 +1,17 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NewsletterSignup from "../../../src/components/shared/NewsletterSignup";
 
 describe("NewsletterSignup", () => {
     it("renders card variant by default", () => {
         render(<NewsletterSignup />);
+
         expect(screen.getByText("Stay in the Loop")).toBeInTheDocument();
     });
 
     it("renders inline variant when specified", () => {
         render(<NewsletterSignup variant="inline" />);
+
         expect(screen.queryByText("Stay in the Loop")).not.toBeInTheDocument();
         expect(screen.getByPlaceholderText("Enter your email")).toBeInTheDocument();
     });
@@ -18,7 +20,7 @@ describe("NewsletterSignup", () => {
         const user = userEvent.setup();
         render(<NewsletterSignup />);
 
-        const emailInput = screen.getByPlaceholderText("Enter your email") as HTMLInputElement;
+        const emailInput = screen.getByPlaceholderText("Enter your email");
         await user.type(emailInput, "test@example.com");
 
         expect(emailInput.value).toBe("test@example.com");
@@ -58,6 +60,7 @@ describe("NewsletterSignup", () => {
     it("requires email to be provided", () => {
         render(<NewsletterSignup />);
         const emailInput = screen.getByPlaceholderText("Enter your email");
+
         expect(emailInput).toHaveAttribute("required");
     });
 });

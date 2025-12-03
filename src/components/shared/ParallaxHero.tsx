@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-interface ParallaxHeroProps {
+type ParallaxHeroProps = {
     title: string;
     subtitle?: string;
     height?: string;
@@ -24,7 +24,7 @@ const ParallaxHero = ({
         };
 
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => { window.removeEventListener("scroll", handleScroll); };
     }, []);
 
     return (

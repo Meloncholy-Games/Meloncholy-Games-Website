@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, RefObject } from "react";
 
-interface UseInViewOptions {
+type UseInViewOptions = {
     threshold?: number;
     rootMargin?: string;
 }

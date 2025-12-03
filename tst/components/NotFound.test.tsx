@@ -22,21 +22,25 @@ describe("NotFound", () => {
 
     it("renders 404 heading", () => {
         renderNotFound();
+
         expect(screen.getByText("404")).toBeInTheDocument();
     });
 
     it("renders error message", () => {
         renderNotFound();
+
         expect(screen.getByText(/Oops! Lost in the Game World/i)).toBeInTheDocument();
     });
 
     it("renders melon emoji", () => {
         renderNotFound();
+
         expect(screen.getByText("🍉")).toBeInTheDocument();
     });
 
     it("renders all quick link cards", () => {
         renderNotFound();
+
         expect(screen.getAllByText("Home")[0]).toBeInTheDocument();
         expect(screen.getAllByText("About Us")[0]).toBeInTheDocument();
         expect(screen.getAllByText("Project Cantaloupe")[0]).toBeInTheDocument();
@@ -45,6 +49,7 @@ describe("NotFound", () => {
 
     it("renders back to home button", () => {
         renderNotFound();
+
         expect(screen.getByRole("link", { name: /Back to Home/i })).toBeInTheDocument();
     });
 

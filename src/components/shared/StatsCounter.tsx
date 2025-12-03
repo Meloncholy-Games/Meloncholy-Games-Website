@@ -1,15 +1,15 @@
-import { Box, Grid, Typography, Paper } from "@mui/material";
+import { Grid, Typography, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
-interface Stat {
+type Stat = {
     value: number;
     label: string;
     suffix?: string;
     prefix?: string;
 }
 
-interface StatsCounterProps {
+type StatsCounterProps = {
     stats: Stat[];
 }
 
@@ -50,7 +50,7 @@ const StatItem = ({ stat }: { stat: Stat }) => {
             }
         }, stepDuration);
 
-        return () => clearInterval(timer);
+        return () => { clearInterval(timer); };
     }, [isVisible, stat.value]);
 
     useEffect(() => {

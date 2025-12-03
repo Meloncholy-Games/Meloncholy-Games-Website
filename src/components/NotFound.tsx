@@ -18,13 +18,13 @@ const NotFound = () => {
             const interval = setInterval(() => {
                 setMelonRotation((prev) => (prev + 10) % 360);
             }, 16);
-            return () => clearInterval(interval);
+            return () => { clearInterval(interval); };
         }
     }, [isSpinning]);
 
     const handleMelonClick = () => {
         setIsSpinning(true);
-        setTimeout(() => setIsSpinning(false), 2000);
+        setTimeout(() => { setIsSpinning(false); }, 2000);
     };
 
     const quickLinks = [

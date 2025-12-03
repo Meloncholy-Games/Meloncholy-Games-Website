@@ -8,10 +8,10 @@ const Home = () => {
         <Container>
             <Box sx={{ padding: 2 }}>
                 <Grid container spacing={2} justifyContent={"end"}>
-                    <Grid item>
+                    <Grid>
                         <Link to={"/"}>Home</Link>
                     </Grid>
-                    <Grid item>
+                    <Grid>
                         <Link to={"/project-cantaloupe"}>Project-Cantaloupe</Link>
                     </Grid>
                 </Grid>
@@ -25,13 +25,13 @@ const Home = () => {
                 spacing={2}
                 style={{ height: "95vh" }}
             >
-                <Grid item>
+                <Grid>
                     <img src={logo} style={{ width: 300 }} />
                 </Grid>
-                <Grid item>
+                <Grid>
                     <Typography variant={"h2"}>Meloncholy Games</Typography>
                 </Grid>
-                <Grid item>
+                <Grid>
                     <Typography align={"center"} sx={{ fontSize: 20 }}>
                         Welcome to the Meloncholy Games website! We are a small indie game
                         development studio based in the United States. We are currently working on

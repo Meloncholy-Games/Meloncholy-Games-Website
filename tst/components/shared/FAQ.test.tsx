@@ -11,6 +11,7 @@ describe("FAQ", () => {
 
     it("renders all FAQ items", () => {
         render(<FAQ items={mockItems} />);
+
         expect(screen.getByText("What is this?")).toBeInTheDocument();
         expect(screen.getByText("How does it work?")).toBeInTheDocument();
         expect(screen.getByText("Can I customize it?")).toBeInTheDocument();
@@ -29,12 +30,14 @@ describe("FAQ", () => {
     it("handles empty items array", () => {
         const { container } = render(<FAQ items={[]} />);
         const accordions = container.querySelectorAll(".MuiAccordion-root");
-        expect(accordions.length).toBe(0);
+
+        expect(accordions).toHaveLength(0);
     });
 
     it("renders correct number of accordions", () => {
         const { container } = render(<FAQ items={mockItems} />);
         const accordions = container.querySelectorAll(".MuiAccordion-root");
-        expect(accordions.length).toBe(mockItems.length);
+
+        expect(accordions).toHaveLength(mockItems.length);
     });
 });
