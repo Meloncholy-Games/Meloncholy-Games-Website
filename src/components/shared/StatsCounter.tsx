@@ -1,23 +1,23 @@
-import { Box, Grid, Typography, Paper } from "@mui/material";
+import { Grid, Typography, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
-interface Stat {
+type Stat = {
     value: number;
     label: string;
     suffix?: string;
     prefix?: string;
-}
+};
 
-interface StatsCounterProps {
+type StatsCounterProps = {
     stats: Stat[];
-}
+};
 
 const StatsCounter = ({ stats }: StatsCounterProps) => {
     return (
         <Grid container spacing={3}>
             {stats.map((stat, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                     <AnimatedSection animation="scale" delay={index * 100}>
                         <StatItem stat={stat} />
                     </AnimatedSection>
@@ -50,7 +50,9 @@ const StatItem = ({ stat }: { stat: Stat }) => {
             }
         }, stepDuration);
 
-        return () => clearInterval(timer);
+        return () => {
+            clearInterval(timer);
+        };
     }, [isVisible, stat.value]);
 
     useEffect(() => {

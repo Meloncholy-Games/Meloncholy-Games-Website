@@ -12,10 +12,10 @@ const Cantaloupe = () => {
                 spacing={2}
                 style={{ height: "100vh" }}
             >
-                <Grid item>
+                <Grid>
                     <Typography variant={"h2"}>Project Cantaloupe</Typography>
                 </Grid>
-                <Grid item>
+                <Grid>
                     <Typography variant={"h4"}>
                         This will host the future website for project cantaloupe. In the meantime,
                         it is live so we can link to it from socials and for AWS purposes.

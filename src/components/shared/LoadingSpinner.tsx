@@ -1,9 +1,9 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 
-interface LoadingSpinnerProps {
+type LoadingSpinnerProps = {
     message?: string;
     fullScreen?: boolean;
-}
+};
 
 const LoadingSpinner = ({ message = "Loading...", fullScreen = false }: LoadingSpinnerProps) => {
     return (

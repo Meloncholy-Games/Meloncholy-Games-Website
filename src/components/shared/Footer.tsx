@@ -29,7 +29,7 @@ const Footer = () => {
         >
             <Container maxWidth="lg">
                 <Grid container spacing={4} justifyContent="space-between">
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <Typography variant="h6" gutterBottom fontWeight={700}>
                             🍉 Meloncholy Games
                         </Typography>
@@ -39,7 +39,7 @@ const Footer = () => {
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} md={2}>
+                    <Grid size={{ xs: 12, sm: 6, md: 2 }}>
                         <Typography variant="h6" gutterBottom fontWeight={600} fontSize="1rem">
                             Navigation
                         </Typography>
@@ -79,7 +79,7 @@ const Footer = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} md={3}>
+                    <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                         <Typography variant="h6" gutterBottom fontWeight={600} fontSize="1rem">
                             Connect With Us
                         </Typography>

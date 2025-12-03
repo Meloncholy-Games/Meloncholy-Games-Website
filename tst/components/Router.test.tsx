@@ -5,7 +5,7 @@ describe("Router", () => {
     beforeAll(() => {
         Object.defineProperty(window, "matchMedia", {
             writable: true,
-            value: jest.fn().mockImplementation((query) => ({
+            value: jest.fn().mockImplementation((query: string) => ({
                 matches: false,
                 media: query,
                 onchange: null,
@@ -16,26 +16,17 @@ describe("Router", () => {
                 dispatchEvent: jest.fn()
             }))
         });
-
-        global.IntersectionObserver = class IntersectionObserver {
-            constructor() {}
-            observe() {}
-            unobserve() {}
-            disconnect() {}
-            readonly root = null;
-            readonly rootMargin = "";
-            readonly thresholds = [];
-            takeRecords = () => [];
-        } as any;
     });
 
     it("renders without crashing", () => {
         render(<Router />);
+
         expect(document.body).toBeInTheDocument();
     });
 
     it("renders home page by default", () => {
         render(<Router />);
+
         expect(screen.getAllByText(/Meloncholy Games/i)[0]).toBeInTheDocument();
     });
 });

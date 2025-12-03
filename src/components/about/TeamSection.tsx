@@ -65,7 +65,7 @@ const TeamSection = () => {
 
             <Grid container spacing={4}>
                 {teamMembers.map((member, index) => (
-                    <Grid item xs={12} md={6} key={index}>
+                    <Grid size={{ xs: 12, md: 6 }} key={index}>
                         <AnimatedSection animation="slideUp" delay={index * 100}>
                             <Card sx={{ height: "100%", p: 2 }}>
                                 <CardContent>

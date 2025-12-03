@@ -25,11 +25,11 @@ export default defineConfig(
         }
     },
     {
-        files: ["**/*.*ts"],
+        files: ["**/*.{ts,tsx}"],
         languageOptions: {
             parserOptions: {
                 project: true,
-                tsconfigRootDir: import.meta.dirname
+                tsconfigRootDir: process.cwd()
             }
         },
         rules: {
@@ -48,7 +48,7 @@ export default defineConfig(
         languageOptions: {
             parserOptions: {
                 project: true,
-                tsconfigRootDir: import.meta.dirname
+                tsconfigRootDir: process.cwd()
             }
         },
         plugins: { jest },

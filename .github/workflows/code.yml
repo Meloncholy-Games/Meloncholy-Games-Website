@@ -6,20 +6,18 @@ on:
       - main
 
 jobs:
-
   check-format:
-    
     name: Check Format
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - name: Cache Node Modules
         uses: actions/cache@v4
@@ -40,7 +38,6 @@ jobs:
           npm run check-format
 
   check-lint:
-    
     name: Check Lint
     runs-on: ubuntu-latest
 

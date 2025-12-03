@@ -34,7 +34,7 @@ const HomePage = () => {
             >
                 <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
                     <Grid container spacing={6} alignItems="center">
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                             <AnimatedSection animation="slideRight">
                                 <Box sx={{ mb: 3 }}>
                                     <img
@@ -104,7 +104,7 @@ const HomePage = () => {
                                 </Box>
                             </AnimatedSection>
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                             <AnimatedSection animation="scale" delay={200}>
                                 <Box
                                     sx={{
@@ -144,7 +144,7 @@ const HomePage = () => {
                 </AnimatedSection>
 
                 <Grid container spacing={4} sx={{ mb: 10 }}>
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <AnimatedSection animation="slideUp" delay={100}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>
@@ -164,7 +164,7 @@ const HomePage = () => {
                         </AnimatedSection>
                     </Grid>
 
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <AnimatedSection animation="slideUp" delay={200}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>
@@ -184,7 +184,7 @@ const HomePage = () => {
                         </AnimatedSection>
                     </Grid>
 
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <AnimatedSection animation="slideUp" delay={300}>
                             <Card sx={{ height: "100%", textAlign: "center", p: 3 }}>
                                 <CardContent>

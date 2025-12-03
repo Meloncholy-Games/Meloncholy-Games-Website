@@ -1,11 +1,12 @@
-import { Box, BoxProps } from "@mui/material";
+import { Box, BoxProps, SxProps, Theme } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-interface AnimatedSectionProps extends BoxProps {
+type AnimatedSectionProps = {
     animation?: "fadeIn" | "slideUp" | "slideLeft" | "slideRight" | "scale";
     delay?: number;
     children: React.ReactNode;
-}
+    sx?: SxProps<Theme>;
+} & Omit<BoxProps, "sx">;
 
 const AnimatedSection = ({
     animation = "fadeIn",
@@ -22,7 +23,9 @@ const AnimatedSection = ({
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => setIsVisible(true), delay);
+                        setTimeout(() => {
+                            setIsVisible(true);
+                        }, delay);
                     }
                 });
             },
@@ -65,8 +68,15 @@ const AnimatedSection = ({
         return { ...baseStyles, opacity: 1, transform: "none" };
     };
 
+    const animationStyles = getAnimationStyles();
+    const combinedSx = sx
+        ? Array.isArray(sx)
+            ? [animationStyles].concat(sx)
+            : [animationStyles, sx]
+        : animationStyles;
+
     return (
-        <Box ref={sectionRef} sx={{ ...getAnimationStyles(), ...sx }} {...props}>
+        <Box ref={sectionRef} sx={combinedSx as SxProps<Theme>} {...props}>
             {children}
         </Box>
     );

@@ -81,7 +81,7 @@ const Contact = () => {
 
             <Container maxWidth="lg" sx={{ py: 8 }}>
                 <Grid container spacing={6}>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <AnimatedSection animation="slideRight">
                             <Typography variant="h4" gutterBottom fontWeight={700}>
                                 Send Us a Message
@@ -148,7 +148,7 @@ const Contact = () => {
                         </AnimatedSection>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <AnimatedSection animation="slideLeft">
                             <Typography variant="h4" gutterBottom fontWeight={700} sx={{ mb: 4 }}>
                                 Other Ways to Connect

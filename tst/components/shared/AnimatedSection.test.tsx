@@ -2,25 +2,13 @@ import { render, screen } from "@testing-library/react";
 import AnimatedSection from "../../../src/components/shared/AnimatedSection";
 
 describe("AnimatedSection", () => {
-    beforeEach(() => {
-        global.IntersectionObserver = class IntersectionObserver {
-            constructor() {}
-            observe() {}
-            unobserve() {}
-            disconnect() {}
-            readonly root = null;
-            readonly rootMargin = "";
-            readonly thresholds = [];
-            takeRecords = () => [];
-        } as any;
-    });
-
     it("renders children", () => {
         render(
             <AnimatedSection>
                 <div>Test Content</div>
             </AnimatedSection>
         );
+
         expect(screen.getByText("Test Content")).toBeInTheDocument();
     });
 
@@ -31,6 +19,7 @@ describe("AnimatedSection", () => {
             </AnimatedSection>
         );
         const box = container.firstChild as HTMLElement;
+
         expect(box).toBeInTheDocument();
     });
 
@@ -40,6 +29,7 @@ describe("AnimatedSection", () => {
                 <div>Test</div>
             </AnimatedSection>
         );
+
         expect(screen.getByText("Test")).toBeInTheDocument();
     });
 
@@ -49,6 +39,7 @@ describe("AnimatedSection", () => {
                 <div>Test</div>
             </AnimatedSection>
         );
+
         expect(screen.getByText("Test")).toBeInTheDocument();
     });
 
@@ -58,6 +49,7 @@ describe("AnimatedSection", () => {
                 <div>Test</div>
             </AnimatedSection>
         );
+
         expect(screen.getByText("Test")).toBeInTheDocument();
     });
 
@@ -70,7 +62,9 @@ describe("AnimatedSection", () => {
                     <div>{animation}</div>
                 </AnimatedSection>
             );
+
             expect(screen.getByText(animation)).toBeInTheDocument();
+
             unmount();
         });
     });

@@ -2,14 +2,14 @@ import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from "
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 
-interface FAQItem {
+type FAQItem = {
     question: string;
     answer: string;
-}
+};
 
-interface FAQProps {
+type FAQProps = {
     items: FAQItem[];
-}
+};
 
 const FAQ = ({ items }: FAQProps) => {
     const [expanded, setExpanded] = useState<string | false>(false);

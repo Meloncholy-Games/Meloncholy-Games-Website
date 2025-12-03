@@ -3,9 +3,9 @@ import { useState } from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-interface NewsletterSignupProps {
+type NewsletterSignupProps = {
     variant?: "inline" | "card";
-}
+};
 
 const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
     const [email, setEmail] = useState("");
@@ -34,7 +34,9 @@ const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
                     placeholder="Enter your email"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
                     required
                     variant="outlined"
                     sx={{ bgcolor: "background.paper" }}
@@ -81,7 +83,9 @@ const NewsletterSignup = ({ variant = "card" }: NewsletterSignupProps) => {
                     placeholder="Enter your email"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
                     required
                     variant="outlined"
                 />

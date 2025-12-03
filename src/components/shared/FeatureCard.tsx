@@ -1,20 +1,19 @@
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import { ReactNode } from "react";
 
-interface FeatureCardProps {
+type FeatureCardProps = {
     icon: ReactNode;
     title: string;
     description: string;
     gradient?: string;
     delay?: number;
-}
+};
 
 const FeatureCard = ({
     icon,
     title,
     description,
-    gradient = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    delay = 0
+    gradient = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
 }: FeatureCardProps) => {
     return (
         <Card

@@ -2,14 +2,14 @@ import { Card, CardContent, CardMedia, Typography, Box, Chip, Button } from "@mu
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-interface BlogCardProps {
+type BlogCardProps = {
     title: string;
     excerpt: string;
     date: string;
     category: string;
     image?: string;
     readTime?: string;
-}
+};
 
 const BlogCard = ({
     title,
