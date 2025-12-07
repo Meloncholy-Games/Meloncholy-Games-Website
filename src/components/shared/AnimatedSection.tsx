@@ -1,5 +1,6 @@
 import { Box, BoxProps, SxProps, Theme } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 type AnimatedSectionProps = {
     animation?: "fadeIn" | "slideUp" | "slideLeft" | "slideRight" | "scale";
@@ -15,68 +16,60 @@ const AnimatedSection = ({
     sx,
     ...props
 }: AnimatedSectionProps) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            setIsVisible(true);
-                        }, delay);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+    const getAnimationVariants = () => {
+        const variants = {
+            hidden: {},
+            visible: {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                transition: {
+                    duration: 0.6,
+                    delay: delay / 1000,
+                    ease: [0.4, 0, 0.2, 1]
+                }
             }
         };
-    }, [delay]);
 
-    const getAnimationStyles = () => {
-        const baseStyles = {
-            transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
-        };
-
-        if (!isVisible) {
-            switch (animation) {
-                case "fadeIn":
-                    return { ...baseStyles, opacity: 0 };
-                case "slideUp":
-                    return { ...baseStyles, opacity: 0, transform: "translateY(50px)" };
-                case "slideLeft":
-                    return { ...baseStyles, opacity: 0, transform: "translateX(50px)" };
-                case "slideRight":
-                    return { ...baseStyles, opacity: 0, transform: "translateX(-50px)" };
-                case "scale":
-                    return { ...baseStyles, opacity: 0, transform: "scale(0.9)" };
-                default:
-                    return baseStyles;
-            }
+        switch (animation) {
+            case "fadeIn":
+                variants.hidden = { opacity: 0 };
+                break;
+            case "slideUp":
+                variants.hidden = { opacity: 0, y: 30 };
+                break;
+            case "slideLeft":
+                variants.hidden = { opacity: 0, x: 30 };
+                break;
+            case "slideRight":
+                variants.hidden = { opacity: 0, x: -30 };
+                break;
+            case "scale":
+                variants.hidden = { opacity: 0, scale: 0.95 };
+                break;
+            default:
+                variants.hidden = { opacity: 0 };
         }
 
-        return { ...baseStyles, opacity: 1, transform: "none" };
+        return variants;
     };
 
-    const animationStyles = getAnimationStyles();
-    const combinedSx = sx
-        ? Array.isArray(sx)
-            ? [animationStyles].concat(sx)
-            : [animationStyles, sx]
-        : animationStyles;
+    const variants = getAnimationVariants();
 
     return (
-        <Box ref={sectionRef} sx={combinedSx as SxProps<Theme>} {...props}>
+        <Box
+            ref={ref}
+            component={motion.div}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={variants}
+            sx={sx}
+            {...props}
+        >
             {children}
         </Box>
     );

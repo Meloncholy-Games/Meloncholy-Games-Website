@@ -23,6 +23,7 @@
         "@mui/lab": "^7.0.1-beta.19",
         "@mui/material": "^7.3.5",
         "aws-cdk-lib": "^2.231.0",
+        "framer-motion": "^12.23.25",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "react-router-dom": "^7.10.0"

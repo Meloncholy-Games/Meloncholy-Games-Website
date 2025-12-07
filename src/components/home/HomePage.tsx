@@ -1,4 +1,13 @@
-import { Container, Typography, Grid, Card, CardContent, Box, Button } from "@mui/material";
+import {
+    Container,
+    Typography,
+    Grid,
+    Card,
+    CardContent,
+    Box,
+    Button,
+    useTheme
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import PageLayout from "../shared/PageLayout";
 import AnimatedSection from "../shared/AnimatedSection";
@@ -7,49 +16,57 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import logo from "../../assets/images/meloncholyGames.png";
+import { motion } from "framer-motion";
 
 const HomePage = () => {
+    const theme = useTheme();
+
     return (
         <PageLayout>
             <Box
                 sx={{
-                    minHeight: "90vh",
+                    minHeight: "92vh",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                     position: "relative",
-                    overflow: "hidden",
-                    "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background:
-                            "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)"
-                    }
+                    background:
+                        theme.palette.mode === "dark"
+                            ? "linear-gradient(180deg, #0a0a0a 0%, #141414 100%)"
+                            : "linear-gradient(180deg, #fafafa 0%, #ffffff 100%)"
                 }}
             >
-                <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+                <Container maxWidth="lg">
                     <Grid container spacing={6} alignItems="center">
                         <Grid size={{ xs: 12, md: 6 }}>
-                            <AnimatedSection animation="slideRight">
-                                <Box sx={{ mb: 3 }}>
-                                    <img
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
+                                <Box sx={{ mb: 4 }}>
+                                    <motion.img
                                         src={logo}
                                         alt="Meloncholy Games Logo"
-                                        style={{ width: "100%", maxWidth: 250, marginBottom: 16 }}
+                                        style={{ width: "100%", maxWidth: 200 }}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.2 }}
                                     />
                                 </Box>
                                 <Typography
-                                    variant="h2"
+                                    variant="h1"
                                     sx={{
-                                        fontWeight: 900,
-                                        color: "white",
-                                        mb: 2,
-                                        fontSize: { xs: "2.5rem", md: "3.5rem" }
+                                        fontWeight: 700,
+                                        mb: 3,
+                                        fontSize: { xs: "2.5rem", md: "3.75rem" },
+                                        background:
+                                            theme.palette.mode === "dark"
+                                                ? "linear-gradient(135deg, #f5f5f5 0%, #94a3b8 100%)"
+                                                : "linear-gradient(135deg, #1a1a1a 0%, #64748b 100%)",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        backgroundClip: "text"
                                     }}
                                 >
                                     Meloncholy Games
@@ -57,55 +74,60 @@ const HomePage = () => {
                                 <Typography
                                     variant="h5"
                                     sx={{
-                                        color: "rgba(255, 255, 255, 0.9)",
-                                        mb: 4,
-                                        fontWeight: 300,
-                                        lineHeight: 1.6
+                                        color: "text.secondary",
+                                        mb: 5,
+                                        fontWeight: 400,
+                                        lineHeight: 1.6,
+                                        maxWidth: 500,
+                                        fontSize: { xs: "1.25rem", md: "1.5rem" }
                                     }}
                                 >
                                     Crafting unique gaming experiences with passion, creativity, and
                                     a touch of melancholy.
                                 </Typography>
                                 <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                                    <Button
-                                        component={Link}
-                                        to="/project-cantaloupe"
-                                        variant="contained"
-                                        size="large"
-                                        endIcon={<ArrowForwardIcon />}
-                                        sx={{
-                                            bgcolor: "white",
-                                            color: "primary.main",
-                                            px: 4,
-                                            "&:hover": {
-                                                bgcolor: "grey.100"
-                                            }
-                                        }}
+                                    <motion.div
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        Discover Our Game
-                                    </Button>
-                                    <Button
-                                        component={Link}
-                                        to="/about"
-                                        variant="outlined"
-                                        size="large"
-                                        sx={{
-                                            borderColor: "white",
-                                            color: "white",
-                                            px: 4,
-                                            "&:hover": {
-                                                borderColor: "white",
-                                                bgcolor: "rgba(255,255,255,0.1)"
-                                            }
-                                        }}
+                                        <Button
+                                            component={Link}
+                                            to="/project-cantaloupe"
+                                            variant="contained"
+                                            size="large"
+                                            endIcon={<ArrowForwardIcon />}
+                                            sx={{ px: 4 }}
+                                        >
+                                            Discover Our Game
+                                        </Button>
+                                    </motion.div>
+                                    <motion.div
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        Learn More
-                                    </Button>
+                                        <Button
+                                            component={Link}
+                                            to="/about"
+                                            variant="outlined"
+                                            size="large"
+                                            sx={{ px: 4 }}
+                                        >
+                                            Learn More
+                                        </Button>
+                                    </motion.div>
                                 </Box>
-                            </AnimatedSection>
+                            </motion.div>
                         </Grid>
                         <Grid size={{ xs: 12, md: 6 }}>
-                            <AnimatedSection animation="scale" delay={200}>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.3,
+                                    ease: [0.4, 0, 0.2, 1]
+                                }}
+                            >
                                 <Box
                                     sx={{
                                         display: "flex",
@@ -114,30 +136,39 @@ const HomePage = () => {
                                         fontSize: { xs: "10rem", md: "15rem" }
                                     }}
                                 >
-                                    🍉
+                                    <motion.div
+                                        animate={{ rotate: [0, 5, -5, 0] }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        🍉
+                                    </motion.div>
                                 </Box>
-                            </AnimatedSection>
+                            </motion.div>
                         </Grid>
                     </Grid>
                 </Container>
             </Box>
 
-            <Container maxWidth="lg" sx={{ py: 10 }}>
+            <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
                 <AnimatedSection animation="fadeIn">
                     <Typography
-                        variant="h3"
+                        variant="h2"
                         align="center"
                         gutterBottom
-                        fontWeight={700}
-                        sx={{ mb: 2 }}
+                        fontWeight={600}
+                        sx={{ mb: 2, fontSize: { xs: "2rem", md: "3rem" } }}
                     >
                         What We're About
                     </Typography>
                     <Typography
-                        variant="h6"
+                        variant="body1"
                         align="center"
                         color="text.secondary"
-                        sx={{ mb: 8, maxWidth: 700, mx: "auto" }}
+                        sx={{ mb: 10, maxWidth: 650, mx: "auto", fontSize: "1.125rem" }}
                     >
                         We're a small indie studio dedicated to creating games that matter.
                     </Typography>
@@ -208,80 +239,69 @@ const HomePage = () => {
                 <AnimatedSection animation="fadeIn" delay={400}>
                     <Box
                         sx={{
-                            background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-                            borderRadius: 4,
-                            p: 8,
+                            border: `1px solid ${theme.palette.divider}`,
+                            borderRadius: 3,
+                            p: { xs: 6, md: 10 },
                             textAlign: "center",
-                            color: "white",
+                            backgroundColor: "background.paper",
                             position: "relative",
-                            overflow: "hidden",
-                            "&::before": {
-                                content: '""',
-                                position: "absolute",
-                                top: -50,
-                                right: -50,
-                                width: 200,
-                                height: 200,
-                                borderRadius: "50%",
-                                background: "rgba(255, 255, 255, 0.1)"
-                            },
-                            "&::after": {
-                                content: '""',
-                                position: "absolute",
-                                bottom: -80,
-                                left: -80,
-                                width: 250,
-                                height: 250,
-                                borderRadius: "50%",
-                                background: "rgba(255, 255, 255, 0.1)"
-                            }
+                            overflow: "hidden"
                         }}
                     >
-                        <Box sx={{ position: "relative", zIndex: 1 }}>
-                            <Typography variant="h3" gutterBottom fontWeight={700}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <Typography variant="h2" gutterBottom fontWeight={600} sx={{ mb: 2 }}>
                                 Project Cantaloupe
                             </Typography>
-                            <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
+                            <Typography
+                                variant="h6"
+                                color="text.secondary"
+                                sx={{ mb: 4, fontWeight: 400 }}
+                            >
                                 Our first major game is in development
                             </Typography>
                             <Typography
                                 variant="body1"
-                                sx={{ mb: 4, maxWidth: 600, mx: "auto", fontSize: "1.1rem" }}
+                                color="text.secondary"
+                                sx={{ mb: 5, maxWidth: 650, mx: "auto", fontSize: "1.0625rem" }}
                             >
                                 A 2D platformer adventure that combines tight controls, beautiful
                                 art, and a world full of secrets waiting to be discovered.
                             </Typography>
-                            <Button
-                                component={Link}
-                                to="/project-cantaloupe"
-                                variant="contained"
-                                size="large"
-                                endIcon={<ArrowForwardIcon />}
-                                sx={{
-                                    bgcolor: "white",
-                                    color: "primary.main",
-                                    px: 5,
-                                    py: 1.5,
-                                    "&:hover": {
-                                        bgcolor: "grey.100"
-                                    }
-                                }}
-                            >
-                                Learn More
-                            </Button>
-                        </Box>
+                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                <Button
+                                    component={Link}
+                                    to="/project-cantaloupe"
+                                    variant="contained"
+                                    size="large"
+                                    endIcon={<ArrowForwardIcon />}
+                                    sx={{ px: 5 }}
+                                >
+                                    Learn More
+                                </Button>
+                            </motion.div>
+                        </motion.div>
                     </Box>
                 </AnimatedSection>
 
-                <AnimatedSection animation="slideUp" delay={500} sx={{ mt: 10 }}>
+                <AnimatedSection animation="slideUp" delay={500} sx={{ mt: 12 }}>
                     <Box sx={{ textAlign: "center" }}>
-                        <Typography variant="h4" gutterBottom fontWeight={700}>
+                        <Typography
+                            variant="h3"
+                            gutterBottom
+                            fontWeight={600}
+                            sx={{ fontSize: { xs: "1.875rem", md: "2.25rem" } }}
+                        >
                             Join Our Journey
                         </Typography>
                         <Typography
                             variant="body1"
                             color="text.secondary"
-                            sx={{ mb: 4, maxWidth: 700, mx: "auto", fontSize: "1.1rem" }}
+                            sx={{ mb: 5, maxWidth: 700, mx: "auto", fontSize: "1.0625rem" }}
                         >
                             We're just getting started, and we'd love to have you along for the
                             ride. Follow our progress, share your thoughts, and help us build
@@ -295,24 +315,28 @@ const HomePage = () => {
                                 flexWrap: "wrap"
                             }}
                         >
-                            <Button
-                                component={Link}
-                                to="/contact"
-                                variant="contained"
-                                size="large"
-                                sx={{ px: 4 }}
-                            >
-                                Get In Touch
-                            </Button>
-                            <Button
-                                component={Link}
-                                to="/about"
-                                variant="outlined"
-                                size="large"
-                                sx={{ px: 4 }}
-                            >
-                                About Us
-                            </Button>
+                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                <Button
+                                    component={Link}
+                                    to="/contact"
+                                    variant="contained"
+                                    size="large"
+                                    sx={{ px: 4 }}
+                                >
+                                    Get In Touch
+                                </Button>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                <Button
+                                    component={Link}
+                                    to="/about"
+                                    variant="outlined"
+                                    size="large"
+                                    sx={{ px: 4 }}
+                                >
+                                    About Us
+                                </Button>
+                            </motion.div>
                         </Box>
                     </Box>
                 </AnimatedSection>
