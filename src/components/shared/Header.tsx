@@ -130,10 +130,11 @@ const Header = () => {
                                                 style={{
                                                     position: "absolute",
                                                     bottom: 0,
-                                                    left: "50%",
-                                                    transform: "translateX(-50%)",
+                                                    left: 0,
+                                                    right: 0,
                                                     width: "32px",
                                                     height: "2px",
+                                                    margin: "0 auto",
                                                     backgroundColor:
                                                         theme.palette.mode === "dark"
                                                             ? "#e0e0e0"
