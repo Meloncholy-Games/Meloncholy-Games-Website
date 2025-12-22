@@ -19,10 +19,45 @@ import MapIcon from "@mui/icons-material/Map";
 import PeopleIcon from "@mui/icons-material/People";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import BrushIcon from "@mui/icons-material/Brush";
+import DownloadIcon from "@mui/icons-material/Download";
+import AppleIcon from "@mui/icons-material/Apple";
 import { motion } from "framer-motion";
 
 const CantaloupePage = () => {
     const theme = useTheme();
+
+    const downloads = [
+        {
+            platform: "Windows (x64)",
+            icon: "🪟",
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/windows/game_x86_64.exe",
+            size: "~97 MB"
+        },
+        {
+            platform: "Windows (ARM64)",
+            icon: "🪟",
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/windows/game_arm64.exe",
+            size: "~83 MB"
+        },
+        {
+            platform: "macOS",
+            icon: <AppleIcon sx={{ fontSize: 40 }} />,
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/macos/game.dmg",
+            size: "~67 MB"
+        },
+        {
+            platform: "Linux (x64)",
+            icon: "🐧",
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/linux/game.x86_64",
+            size: "~71 MB"
+        },
+        {
+            platform: "Linux (ARM64)",
+            icon: "🐧",
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/linux/game.arm64",
+            size: "~64 MB"
+        }
+    ];
 
     const features = [
         {
@@ -169,6 +204,76 @@ const CantaloupePage = () => {
                                 </Button>
                             </motion.div>
                         </Box>
+                    </Box>
+                </AnimatedSection>
+
+                <AnimatedSection animation="fadeIn" delay={100} sx={{ mb: 12 }}>
+                    <Box
+                        sx={{
+                            border: `1px solid ${theme.palette.divider}`,
+                            borderRadius: 3,
+                            p: { xs: 6, md: 8 },
+                            backgroundColor: "background.paper"
+                        }}
+                    >
+                        <Typography
+                            variant="h3"
+                            align="center"
+                            gutterBottom
+                            fontWeight={600}
+                            sx={{ mb: 2, fontSize: { xs: "1.875rem", md: "2.25rem" } }}
+                        >
+                            Download Game Client
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="text.secondary"
+                            align="center"
+                            sx={{ mb: 6, fontSize: "1.0625rem" }}
+                        >
+                            Choose your platform and start playing
+                        </Typography>
+                        <Grid container spacing={2} justifyContent="center">
+                            {downloads.map((download, index) => (
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                                    <AnimatedSection animation="scale" delay={index * 50}>
+                                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                            <Button
+                                                variant="outlined"
+                                                fullWidth
+                                                component="a"
+                                                href={download.url}
+                                                download
+                                                startIcon={<DownloadIcon />}
+                                                sx={{
+                                                    p: 3,
+                                                    flexDirection: "column",
+                                                    alignItems: "center",
+                                                    gap: 1.5,
+                                                    height: "100%",
+                                                    borderWidth: 2,
+                                                    "&:hover": {
+                                                        borderWidth: 2
+                                                    }
+                                                }}
+                                            >
+                                                <Box sx={{ fontSize: "2.5rem" }}>
+                                                    {typeof download.icon === "string"
+                                                        ? download.icon
+                                                        : download.icon}
+                                                </Box>
+                                                <Typography variant="h6" fontWeight={600}>
+                                                    {download.platform}
+                                                </Typography>
+                                                <Typography variant="caption" color="text.secondary">
+                                                    {download.size}
+                                                </Typography>
+                                            </Button>
+                                        </motion.div>
+                                    </AnimatedSection>
+                                </Grid>
+                            ))}
+                        </Grid>
                     </Box>
                 </AnimatedSection>
 
