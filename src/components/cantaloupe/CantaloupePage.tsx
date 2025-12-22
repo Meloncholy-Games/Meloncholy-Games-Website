@@ -8,7 +8,9 @@ import {
     Button,
     Chip,
     Paper,
-    useTheme
+    useTheme,
+    Link,
+    Collapse
 } from "@mui/material";
 import PageLayout from "../shared/PageLayout";
 import AnimatedSection from "../shared/AnimatedSection";
@@ -21,43 +23,95 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import BrushIcon from "@mui/icons-material/Brush";
 import DownloadIcon from "@mui/icons-material/Download";
 import AppleIcon from "@mui/icons-material/Apple";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const CantaloupePage = () => {
     const theme = useTheme();
+    const [showAllPlatforms, setShowAllPlatforms] = useState(false);
+    const [detectedPlatform, setDetectedPlatform] = useState<string | null>(null);
+
+    useEffect(() => {
+        const detectPlatform = () => {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+
+            if (userAgent.includes("win")) {
+                return "windows";
+            } else if (userAgent.includes("mac") || platform.includes("mac")) {
+                return "macos";
+            } else if (userAgent.includes("linux") || platform.includes("linux")) {
+                return "linux";
+            }
+            return null;
+        };
+
+        const detectArchitecture = () => {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes("arm") || userAgent.includes("aarch64")) {
+                return "arm64";
+            }
+            return "x64";
+        };
+
+        const os = detectPlatform();
+        const arch = detectArchitecture();
+
+        if (os) {
+            setDetectedPlatform(`${os}-${arch}`);
+        }
+    }, []);
 
     const downloads = [
         {
+            id: "windows-x64",
             platform: "Windows (x64)",
             icon: "🪟",
             url: "https://cantaloupe-game-clients.s3.amazonaws.com/windows/game_x86_64.exe",
             size: "~97 MB"
         },
         {
+            id: "windows-arm64",
             platform: "Windows (ARM64)",
             icon: "🪟",
             url: "https://cantaloupe-game-clients.s3.amazonaws.com/windows/game_arm64.exe",
             size: "~83 MB"
         },
         {
+            id: "macos-x64",
             platform: "macOS",
             icon: <AppleIcon sx={{ fontSize: 40 }} />,
             url: "https://cantaloupe-game-clients.s3.amazonaws.com/macos/game.dmg",
             size: "~67 MB"
         },
         {
+            id: "macos-arm64",
+            platform: "macOS",
+            icon: <AppleIcon sx={{ fontSize: 40 }} />,
+            url: "https://cantaloupe-game-clients.s3.amazonaws.com/macos/game.dmg",
+            size: "~67 MB"
+        },
+        {
+            id: "linux-x64",
             platform: "Linux (x64)",
             icon: "🐧",
             url: "https://cantaloupe-game-clients.s3.amazonaws.com/linux/game.x86_64",
             size: "~71 MB"
         },
         {
+            id: "linux-arm64",
             platform: "Linux (ARM64)",
             icon: "🐧",
             url: "https://cantaloupe-game-clients.s3.amazonaws.com/linux/game.arm64",
             size: "~64 MB"
         }
     ];
+
+    const primaryDownload = detectedPlatform
+        ? downloads.find((d) => d.id === detectedPlatform) || downloads[0]
+        : downloads[0];
 
     const features = [
         {
@@ -231,49 +285,129 @@ const CantaloupePage = () => {
                             align="center"
                             sx={{ mb: 6, fontSize: "1.0625rem" }}
                         >
-                            Choose your platform and start playing
+                            {detectedPlatform
+                                ? "Download for your system"
+                                : "Choose your platform and start playing"}
                         </Typography>
-                        <Grid container spacing={2} justifyContent="center">
-                            {downloads.map((download, index) => (
-                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-                                    <AnimatedSection animation="scale" delay={index * 50}>
-                                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                                            <Button
-                                                variant="outlined"
-                                                fullWidth
-                                                component="a"
-                                                href={download.url}
-                                                download
-                                                startIcon={<DownloadIcon />}
-                                                sx={{
-                                                    p: 3,
-                                                    flexDirection: "column",
-                                                    alignItems: "center",
-                                                    gap: 1.5,
-                                                    height: "100%",
-                                                    borderWidth: 2,
-                                                    "&:hover": {
-                                                        borderWidth: 2
-                                                    }
-                                                }}
+
+                        <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    component="a"
+                                    href={primaryDownload.url}
+                                    download
+                                    startIcon={<DownloadIcon />}
+                                    sx={{
+                                        px: 6,
+                                        py: 3,
+                                        fontSize: "1.125rem",
+                                        fontWeight: 600
+                                    }}
+                                >
+                                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                        <Box sx={{ fontSize: "1.5rem" }}>
+                                            {typeof primaryDownload.icon === "string"
+                                                ? primaryDownload.icon
+                                                : primaryDownload.icon}
+                                        </Box>
+                                        <Box>
+                                            <Box>Download for {primaryDownload.platform}</Box>
+                                            <Typography
+                                                variant="caption"
+                                                sx={{ opacity: 0.8, display: "block" }}
                                             >
-                                                <Box sx={{ fontSize: "2.5rem" }}>
-                                                    {typeof download.icon === "string"
-                                                        ? download.icon
-                                                        : download.icon}
-                                                </Box>
-                                                <Typography variant="h6" fontWeight={600}>
-                                                    {download.platform}
-                                                </Typography>
-                                                <Typography variant="caption" color="text.secondary">
-                                                    {download.size}
-                                                </Typography>
-                                            </Button>
-                                        </motion.div>
-                                    </AnimatedSection>
+                                                {primaryDownload.size}
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                </Button>
+                            </motion.div>
+                        </Box>
+
+                        <Box sx={{ textAlign: "center" }}>
+                            <Link
+                                component="button"
+                                variant="body2"
+                                onClick={() => setShowAllPlatforms(!showAllPlatforms)}
+                                sx={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: 0.5,
+                                    cursor: "pointer",
+                                    textDecoration: "none",
+                                    "&:hover": { textDecoration: "underline" }
+                                }}
+                            >
+                                {showAllPlatforms ? (
+                                    <>
+                                        Hide other platforms <ExpandLessIcon fontSize="small" />
+                                    </>
+                                ) : (
+                                    <>
+                                        View all platforms <ExpandMoreIcon fontSize="small" />
+                                    </>
+                                )}
+                            </Link>
+                        </Box>
+
+                        <Collapse in={showAllPlatforms}>
+                            <Box sx={{ mt: 4 }}>
+                                <Grid container spacing={2} justifyContent="center">
+                                    {downloads.map((download, index) => (
+                                        <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                                            <motion.div
+                                                whileHover={{ scale: 1.02 }}
+                                                whileTap={{ scale: 0.98 }}
+                                            >
+                                                <Button
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    component="a"
+                                                    href={download.url}
+                                                    download
+                                                    startIcon={<DownloadIcon />}
+                                                    sx={{
+                                                        p: 3,
+                                                        flexDirection: "column",
+                                                        alignItems: "center",
+                                                        gap: 1.5,
+                                                        height: "100%",
+                                                        borderWidth:
+                                                            download.id === detectedPlatform
+                                                                ? 2
+                                                                : 1,
+                                                        borderColor:
+                                                            download.id === detectedPlatform
+                                                                ? "primary.main"
+                                                                : "divider",
+                                                        "&:hover": {
+                                                            borderWidth: 2
+                                                        }
+                                                    }}
+                                                >
+                                                    <Box sx={{ fontSize: "2.5rem" }}>
+                                                        {typeof download.icon === "string"
+                                                            ? download.icon
+                                                            : download.icon}
+                                                    </Box>
+                                                    <Typography variant="h6" fontWeight={600}>
+                                                        {download.platform}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="caption"
+                                                        color="text.secondary"
+                                                    >
+                                                        {download.size}
+                                                    </Typography>
+                                                </Button>
+                                            </motion.div>
+                                        </Grid>
+                                    ))}
                                 </Grid>
-                            ))}
-                        </Grid>
+                            </Box>
+                        </Collapse>
                     </Box>
                 </AnimatedSection>
 
